@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_parser.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 12:40:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 17:46:08 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/05/10 23:14:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 /*
 **	Find the regex length
@@ -130,8 +130,14 @@ t_data	*ft_parser_option_checker(t_data *elem)
 	curr->flags.spaces = ft_strhas(regex, ' ');
 	curr->flags.zero = ft_strhas(regex, '0');
 	if (ft_strhas(regex, '.'))
-		curr->width = ft_parser_get_width(); /* Here */
-		curr->preci = ft_parser_get_precision(regex);
+	{
+		if (curr->flags.zero)
+			curr->width = ft_parser_get_width_zero_opt(ft_cutstr(regex, '.'));
+		else
+			curr->width = ft_parser_get_width(regex);
+		curr->preci = ft_parser_get_precision(regex);	
+	}
+	curr->width = ft_parser_get_width(regex);
 	free(regex);
 	return (curr);
 }

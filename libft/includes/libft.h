@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 16:37:41 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/05/10 21:52:54 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -283,5 +283,7 @@ char				*ft_strcut(char **src, int c);
 char				*ft_strncut(char **src, size_t n);
 
 int					ft_strhas(char *str, int c);
+
+char				*ft_cutstr(char *src, int c);
 
 #endif

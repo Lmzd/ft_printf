@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 17:18:56 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/05/10 22:59:06 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 t_data		*ft_create_data_elem(char **str, int id)
 {
@@ -73,6 +73,7 @@ t_data		*ft_parser_regex(t_data **begin)
 		printf("zero : %d\n", elem->flags.zero);
 		printf("plus : %d\n", elem->flags.plus);
 		printf("moin : %d\n", elem->flags.moins);
+		printf("Widt : %d\n", elem->width);
 		printf("Prec : %d\n", elem->preci);
 		printf("=========\n\n\n");
 		elem = elem->next;

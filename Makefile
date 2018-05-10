@@ -13,10 +13,11 @@ INCS		:=	-I $(LIB_PATH) -I $(SRCS_DIR)
 
 # SOURCES
 SRCS_DIR :=	srcs
-SRCS	:=	main.c			\
-				parser.c		\
-				ft_printf.c		\
-				utils_parser.c
+SRCS	:=		main.c				\
+				ft_printf.c			\
+				parser/parser.c		\
+				parser/utils.c		\
+				parser/helper.c
 
 SRCS_FILES 	:= $(addprefix $(SRCS_DIR)/,$(SRCS))
 # OBJECTS
