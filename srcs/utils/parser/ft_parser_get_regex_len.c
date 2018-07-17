@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parser_get_precision.c                          :+:      :+:    :+:   */
+/*   ft_parser_get_regex_len.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/17 17:42:46 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:04:32 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/07/17 18:06:26 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/07/17 18:22:52 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../../includes/ft_printf.h"
 
-int		ft_parser_get_precision(char *regex)
+/*
+**	Find the regex length
+*/
+
+int	ft_get_regex_len(char **src)
 {
-	int 	i;
-	int		j;
-	int		len;
-	char	*res;
-
+	int 			len;
+	int 			i;
+	int				j;
+	
 	i = 0;
 	len = 0;
-	while (regex[i] != '.')
+	while ((*src)[i] != '\0')
+	{
+		j = 0;
+		while (TYPES[j] != '\0')
+		{
+			if ((*src)[i] == TYPES[j])
+				return (++len);
+			j++;
+		}
 		i++;
-	i++;
-	while (regex[i] >= 48 && regex[i++] <= 59)
 		len++;
-	if (!(res = (char*)malloc(sizeof(char) * len + 1)))
-		return (0);
-	i = 0;
-	while (regex[i] != '.')
-		i++;
-	i++;
-	j = 0;
-	while (regex[i] >= 48 && regex[i] <= 59)
-		res[j++] = regex[i++];
-	res[j] = '\0';
-	return (ft_atoi(res));
+	}
+	return (len);
 }

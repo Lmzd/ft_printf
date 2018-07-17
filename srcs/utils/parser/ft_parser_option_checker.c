@@ -1,82 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_parser_option_checker.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/10 12:40:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 17:43:18 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/07/17 18:01:37 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/07/17 18:04:29 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
-
-/*
-**	Find the regex length
-*/
-
-int	ft_get_regex_len(char **src)
-{
-	int 			len;
-	int 			i;
-	int				j;
-	
-	i = 0;
-	len = 0;
-	while ((*src)[i] != '\0')
-	{
-		j = 0;
-		while (TYPES[j] != '\0')
-		{
-			if ((*src)[i] == TYPES[j])
-				return (++len);
-			j++;
-		}
-		i++;
-		len++;
-	}
-	return (len);
-}
-
-/*
-**	Find the regex in format
-**	send string begin with % 
-**  have to return a string with all the regex
-*/
-
-char	*ft_find_regex(char **src)
-{
-	char	*regex;	
-	int 	len;
-
-	len = ft_get_regex_len(src);
-	regex = ft_strncut(src, len);
-	return (regex);
-}
-
-/*
-**	Push Back elem in the main list
-*/
-
-void	ft_append(t_data **lst, t_data *new)
-{
-	t_data	*list_tmp;
-
-	list_tmp = *lst;
-	if (list_tmp)
-	{
-		while (list_tmp->next)
-			list_tmp = list_tmp->next;
-		list_tmp->next = new;
-		new->next = NULL;
-	}
-	else
-	{
-		list_tmp = new;
-		new->next = NULL;
-	}
-}
+#include "../libft/includes/libft.h"
 
 /*
 **	Fill the options variable and type in a structure element

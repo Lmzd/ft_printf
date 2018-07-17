@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append.c                                        :+:      :+:    :+:   */
+/*   ft_list_append.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/17 17:46:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 17:52:32 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/07/17 18:20:50 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/07/17 18:21:08 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-**	name: ft_append
+**	name: ft_list_append
 **
 **  desc: Append in a list a new element at the end of the linked list 
 **  input: 
@@ -19,7 +19,7 @@
 **      new: new structure element
 **  return: void
 */
-void	ft_append(t_data **lst, t_data *new)
+void	ft_list_append(t_data **lst, t_data *new)
 {
 	t_data	*list_tmp;
 
