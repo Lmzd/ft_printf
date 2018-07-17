@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 16:28:28 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/17 18:45:58 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include "../libft/includes/libft.h"
+# include "../libft/includes/ft_utils_parser.h"
 
 # define TYPES "sSpdDioOuUxXcC" /* paul : c'est quoi l'interet de ça ? doublon avec l'enum ? */
 
@@ -59,11 +60,5 @@ typedef struct	s_data
 ** Parser Function
 */
 t_data			*ft_parser(const char *format, va_list ap);
-int				ft_get_regex_len(char **src);
-char			*ft_find_regex(char **src);
-void			ft_append(t_data **lst, t_data *new);
-t_data			*ft_parser_option_checker(t_data *elem);
-int				ft_parser_get_width_zero_opt(char *reg);
-int				ft_parser_get_width(char *reg);
 
 #endif
