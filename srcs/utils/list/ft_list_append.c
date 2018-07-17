@@ -6,9 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:20:50 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:21:08 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 20:05:30 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../../includes/ft_printf.h"
 
 /*
 **	name: ft_list_append

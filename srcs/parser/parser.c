@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 16:27:26 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/17 20:38:46 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_data		*ft_create_data_elem(char **str)
 		return (NULL);
 	curr->text = ft_strcut(str, '%');
 	if (**str)
-		curr->regex = ft_find_regex(str);
+		curr->expression = ft_parser_find_regex(str);
 	curr->next = NULL;
 	return(curr);
 }
@@ -42,7 +42,7 @@ t_data		*ft_parser_format(const char *format)
 	while (*str)
 	{
 		curr = ft_create_data_elem(&str);
-		ft_append(&begin_list, curr);
+		ft_list_append(&begin_list, curr);
 	}
 	return(begin_list);
 }
@@ -63,7 +63,7 @@ t_data		*ft_parser_regex(t_data **begin)
 	elem = *begin;
 	while (elem)
 	{
-		elem = ft_parser_option_checker(elem);
+		elem = ft_parser_flags_checker(elem);
 		printf("Type      : %c\n", elem->type);
 		printf("Space     : %d\n", elem->flags.spaces);
 		printf("Hash      : %d\n", elem->flags.hashtag);
@@ -75,6 +75,7 @@ t_data		*ft_parser_regex(t_data **begin)
 		printf("=========\n\n\n");
 		elem = elem->next;
 	}
+	return NULL;
 }
 
 /*

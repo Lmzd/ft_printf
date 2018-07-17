@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:06:26 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:48:48 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 20:12:51 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	Find the regex length
 */
 
-int	ft_get_regex_len(char **src)
+int	ft_parser_get_regex_len(char **src)
 {
 	int 			len;
 	int 			i;
