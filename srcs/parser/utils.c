@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 12:40:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 23:14:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:43:18 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,34 +77,6 @@ void	ft_append(t_data **lst, t_data *new)
 		new->next = NULL;
 	}
 }
-
-int		ft_parser_get_precision(char *regex)
-{
-	int 	i;
-	int		j;
-	int		len;
-	char	*res;
-
-	i = 0;
-	len = 0;
-	while (regex[i] != '.')
-		i++;
-	i++;
-	while (regex[i] >= 48 && regex[i++] <= 59)
-		len++;
-	if (!(res = (char*)malloc(sizeof(char) * len + 1)))
-		return (0);
-	i = 0;
-	while (regex[i] != '.')
-		i++;
-	i++;
-	j = 0;
-	while (regex[i] >= 48 && regex[i] <= 59)
-		res[j++] = regex[i++];
-	res[j] = '\0';
-	return (ft_atoi(res));
-}
-
 
 /*
 **	Fill the options variable and type in a structure element

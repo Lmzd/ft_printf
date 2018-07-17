@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 22:41:23 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 23:17:27 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/06 14:47:41 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,13 @@ int		ft_parser_get_width(char *reg)
 	if (!(width = (char *)malloc(sizeof(char) * len + 1)))
 		return (0);
 	i = 0;	
-	while (reg[i++] != '\0')
+	while (reg[i] != '\0')
+	{
+		printf("%c\n", reg[i]);
 		if (reg[i] > 47 && reg[i] < 58)
 			width[i] = reg[i];
+		i++;
+	}
 	width[i] = '\0';
 	printf("len : %s\n", width);
 	return (ft_atoi(width));
