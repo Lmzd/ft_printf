@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 23:15:29 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:28:28 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include "../libft/includes/libft.h"
 
-# define TYPES "sSpdDioOuUxXcC"
+# define TYPES "sSpdDioOuUxXcC" /* paul : c'est quoi l'interet de ça ? doublon avec l'enum ? */
 
 typedef struct s_data	t_data;
 
@@ -33,27 +33,27 @@ enum	e_types
 
 typedef struct	s_flags
 {
-	int			zero;
-	int			hashtag;
-	int			plus;
-	int			moins;
-	int			spaces;
-	enum e_length	length;		
+	int				zero;
+	int				hashtag;
+	int				plus;
+	int				dash;
+	int				spaces;
+	enum e_length	length;
 }				t_flags;
 
-struct			s_data
+typedef struct	s_data
 {
-	int			index;
-	char		*text;		/* le texte avant le % recontré*/
-	t_flags		flags;		/* le flag */
-	char		*regex; 	/* l'expression entiere */ 
-	int			width;		/* la taille minimale de l'output */ 
-	enum e_types		type;		/* le type du content */
-	int			preci;		/* la precision exigée en int */
-	void		*content;	/* la variable envoyé correspondant au type demandé */
-	void		*res;		/* la valeur final retourné */
-	t_data		*next;		/* la prochaine structure */
-};
+	char 	*text;					/* le texte avant le % recontré*/
+	t_flags			flags;			/* le flag */
+	char			*expression; 	/* l'expression entiere sans le % sign au debut */
+	int				width;			/* la taille minimale de l'output */
+	enum e_types	type;			/* le type du content */
+	int				precision;		/* la precision exigée en int */
+	void			*value;			/* la variable envoyé correspondant au type demandé recupéré depuis va_ap */
+	void			*buffer;		/* la valeur final retourné */
+	int				buffer_len;		/* la longeur du buffer a afficher */
+	t_data			*next;			/* la prochaine structure */
+}				t_data;
 
 /*
 ** Parser Function

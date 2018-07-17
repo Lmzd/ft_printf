@@ -2,6 +2,7 @@
 
 int main(void)
 {
+
     printf("Nombres positifs avec flag");
     printf("%d\n", 42);
     printf("+: %+d\n", 42);
