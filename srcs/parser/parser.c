@@ -6,19 +6,18 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 22:59:06 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:27:26 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_data		*ft_create_data_elem(char **str, int id)
+t_data		*ft_create_data_elem(char **str)
 {
 	t_data	*curr;
 
 	if (!(curr = (t_data*)malloc(sizeof(t_data))))
 		return (NULL);
-	curr->index = id;
 	curr->text = ft_strcut(str, '%');
 	if (**str)
 		curr->regex = ft_find_regex(str);
@@ -28,34 +27,32 @@ t_data		*ft_create_data_elem(char **str, int id)
 
 /*
 **	Take the format string recieve in arg cut it to store the regex
-**	each % will as a personnal link
+**	each % will be a unique list element
 */
 
 t_data		*ft_parser_format(const char *format)
 {
 	char 	*str;
-	t_data	*begin;
+	t_data	*begin_list;
 	t_data	*curr;
-	int 	id;
 
-	id = 0;
 	str = ft_strdup(format);
 	curr = NULL;
-	begin = ft_create_data_elem(&str, id);
+	begin_list = ft_create_data_elem(&str);
 	while (*str)
-	{	
-		curr = ft_create_data_elem(&str, ++id);
-		ft_append(&begin, curr);
+	{
+		curr = ft_create_data_elem(&str);
+		ft_append(&begin_list, curr);
 	}
-	return(begin);
+	return(begin_list);
 }
 
 /*
-**	Take the regex string store in the struct  && to store 
+**	Take the regex string store in the struct  && to store
 **			the flag
 **			the width
 **			the precision
-**			
+**
 **	each % will as a personnal link
 */
 
@@ -65,16 +62,16 @@ t_data		*ft_parser_regex(t_data **begin)
 
 	elem = *begin;
 	while (elem)
-	{	
+	{
 		elem = ft_parser_option_checker(elem);
-		printf("Type : %c\n", elem->type);
-		printf("spce : %d\n", elem->flags.spaces);
-		printf("hash : %d\n", elem->flags.hashtag);
-		printf("zero : %d\n", elem->flags.zero);
-		printf("plus : %d\n", elem->flags.plus);
-		printf("moin : %d\n", elem->flags.moins);
-		printf("Widt : %d\n", elem->width);
-		printf("Prec : %d\n", elem->preci);
+		printf("Type      : %c\n", elem->type);
+		printf("Space     : %d\n", elem->flags.spaces);
+		printf("Hash      : %d\n", elem->flags.hashtag);
+		printf("Zero      : %d\n", elem->flags.zero);
+		printf("Plus      : %d\n", elem->flags.plus);
+		printf("Dash      : %d\n", elem->flags.dash);
+		printf("Width     : %d\n", elem->width);
+		printf("Precision : %d\n", elem->precision);
 		printf("=========\n\n\n");
 		elem = elem->next;
 	}
@@ -87,7 +84,7 @@ t_data		*ft_parser_regex(t_data **begin)
 
 t_data		*ft_parser_content(t_data **begin, va_list ap)
 {
-		
+
 }
 
 t_data		*ft_parser(const char *format, va_list ap)
@@ -96,7 +93,5 @@ t_data		*ft_parser(const char *format, va_list ap)
 
 	begin = ft_parser_format(format);
 	begin = ft_parser_regex(&begin);
-
-	
 
 }
