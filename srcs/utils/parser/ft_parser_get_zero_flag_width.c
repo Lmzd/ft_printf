@@ -6,12 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:15:58 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:22:24 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 18:49:11 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "../../includes/ft_printf.h"
+#include "../../../includes/ft_utils_parser.h"
 
 int		ft_parser_get_zero_flag_width(char *reg)
 {

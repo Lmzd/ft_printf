@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:21:43 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:22:22 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 18:49:26 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "../../../includes/ft_utils_parser.h"
 
 int		ft_parser_get_width(char *reg)
 {

@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:01:37 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:04:29 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 18:49:18 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../../../includes/ft_utils_parser.h"
 
 /*
 **	Fill the options variable and type in a structure element

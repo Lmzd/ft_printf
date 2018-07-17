@@ -6,13 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:06:52 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:06:54 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/17 18:49:26 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-#include "../libft/includes/libft.h"
+#include "../../../includes/ft_utils_parser.h"
 
 /*
 **	Find the regex in format
