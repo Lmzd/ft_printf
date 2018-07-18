@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 18:59:58 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 21:32:42 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ typedef struct		s_data
 	int				width;			    /* la taille minimale de l'output */
 	char			type;			    /* le type du content */
 	int				precision;		    /* la precision exigée en int */
-	void			*value;			    /* la variable envoyé correspondant au type demandé recupéré depuis va_ap */
+	char			*s_val;			    /* la variable envoyé correspondant au type s recupéré depuis va_ap */
+	int 			i_val;			    /* la variable envoyé correspondant au type d, i, o, c, u, x recupéré depuis va_ap */
+	double			d_val;			    /* la variable envoyé correspondant au type g, e, f recupéré depuis va_ap */
 	void			*buffer;		    /* la valeur final retourné */
 	int				buffer_len;		    /* la longeur du buffer a afficher */
     t_data	        *next;		        /* la prochaine structure */
