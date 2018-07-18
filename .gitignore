@@ -1,4 +1,6 @@
-srcs/*.o
+*.o
+**/**/*.o
 **/*.o
-*.a
+libft.a
 ftprintf
+*.json
