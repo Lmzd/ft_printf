@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 19:18:38 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 22:17:36 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,19 @@
 **	and ask for it in the good cast
 */
 
-t_data		*ft_parser_content(t_data **begin, va_list ap)
+t_data		*ft_parser_content(t_data **list, va_list ap)
 {
-    return(NULL);
+    t_data *begin;
+    t_data *curr;
+
+    begin = *list;
+    curr = ft_parser_va_arg_get_argument(begin, ap);
+    while (curr->next)
+    {
+        curr = curr->next;
+        curr = ft_parser_va_arg_get_argument(curr, ap);
+    }
+    return (begin);
 }
  
 /*
@@ -34,8 +44,6 @@ t_data		*ft_parser_format(const char *format)
     t_data	*begin_list;
 	t_data	*curr;
 
-
-	curr = NULL;
     str_mem = str;
 	str = ft_strdup(format);
 	begin_list = ft_list_create_data_elem();
@@ -58,6 +66,7 @@ t_data		*ft_parser(const char *format, va_list ap)
 {
 	t_data	*begin;
 
-	begin = ft_parser_format(format);
+    begin = ft_parser_format(format);
+    begin = ft_parser_content(&begin, ap);
     return (NULL);
 }
