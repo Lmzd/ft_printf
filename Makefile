@@ -1,6 +1,7 @@
 # GNU PARAMETERS
 NAME	:=	ftprintf
 #CFLAGS	:=	-Werror -Wextra -Wall
+CFLAGS	:=	-g
 CC		:=	gcc
 
 # LIBRARIES
@@ -16,6 +17,7 @@ SRCS_DIR :=	srcs
 SRCS	:=		main.c				\
 				ft_printf.c			\
 				parser/parser.c		\
+				format/ft_format_data.c \
 				utils/parser/ft_parser_find_regex.c \
 				utils/parser/ft_parser_flags_checker.c \
 				utils/parser/ft_parser_get_precision.c \
@@ -23,6 +25,7 @@ SRCS	:=		main.c				\
 				utils/parser/ft_parser_get_width.c \
 				utils/parser/ft_parser_get_zero_flag_width.c \
 				utils/list/ft_list_append.c \
+				test/test_format.c			\
 
 SRCS_FILES 	:= $(addprefix $(SRCS_DIR)/,$(SRCS))
 # OBJECTS

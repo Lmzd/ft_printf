@@ -3,15 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_append.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD:srcs/utils/list/ft_append.c
 /*   Created: 2018/07/17 17:46:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 18:00:30 by pblouin          ###   ########.fr       */
-=======
-/*   Created: 2018/07/17 18:20:50 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 20:05:30 by lmazeaud         ###   ########.fr       */
->>>>>>> 4e81311eb2674aa930b70cf7c234f98325d69d9b:srcs/utils/list/ft_list_append.c
+/*   Updated: 2018/07/18 11:52:15 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_struct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 20:35:32 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 17:33:58 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct		s_data
 	int				width;			    /* la taille minimale de l'output */
 	char			type;			    /* le type du content */
 	int				precision;		    /* la precision exigée en int */
-	void			*value;			    /* la variable envoyé correspondant au type demandé recupéré depuis va_ap */
-	void			*buffer;		    /* la valeur final retourné */
+	void			*value;		    	/* la variable envoyé correspondant au type demandé recupéré depuis va_ap */
+	char			*buffer;		    /* la string finale retournée */
 	int				buffer_len;		    /* la longeur du buffer a afficher */
     struct s_data	*next;		        /* la prochaine structure */
 }		            t_data;
