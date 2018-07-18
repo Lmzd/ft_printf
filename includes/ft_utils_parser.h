@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:46:22 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 19:16:30 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 22:01:59 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "./ft_printf.h" 
 
+/*
+**  Parser
+*/
 char	*ft_parser_find_regex(char **src);
 int	    ft_parser_get_regex_len(char **src);
 int		ft_parser_get_width(char *reg);
@@ -22,6 +25,14 @@ int		ft_parser_get_precision(char *regex);
 t_data	*ft_parser_options_checker(t_data *elem);
 int		ft_parser_get_zero_flag_width(char *reg);
 t_data  *ft_parser_get_text_and_expression(t_data *elem, char **str);
+
+/*
+**  Va_arg
+*/
+t_data  *ft_parser_va_arg_get_string_arg(t_data *elem, va_list ap);
+t_data  *ft_parser_va_arg_get_double_arg(t_data *elem, va_list ap);
+t_data  *ft_parser_va_arg_get_int_arg(t_data *elem, va_list ap);
+t_data  *ft_parser_va_arg_get_argument(t_data *elem, va_list ap);
 
 #endif
 
