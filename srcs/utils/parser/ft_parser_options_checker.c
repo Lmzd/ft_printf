@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 19:15:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 19:43:26 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 22:11:39 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_data	*ft_parser_options_checker(t_data *elem)
 	len = ft_strlen(regex);
 	curr->type = regex[len - 1];
 	curr = ft_parser_flags_checker(curr, regex);
-    curr = ft_parser_precision_and_width(curr, regex);
+   // curr = ft_parser_precision_and_width(curr, regex);
     curr = ft_parser_modifier_checker(curr, regex);
 	free(regex);
 	return (curr);
