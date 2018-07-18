@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/17 18:20:50 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 20:05:30 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/07/17 17:46:29 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/07/18 20:11:43 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 /*
 **	name: ft_list_append
 **
-**  desc: Append in a list a new element at the end of the linked list 
-**  input: 
-**      lst: begin of the data structure
-**      new: new structure element
-**  return: void
+**  desc: Append a new element to the end of a linked list
+**  input:
+**      lst: a pointer to the head of the list
+**      new: new list element
+**  return: nothing (we use a pointer of pointer to edit the lst directly)
 */
 void	ft_list_append(t_data **lst, t_data *new)
 {
