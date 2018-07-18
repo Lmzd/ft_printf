@@ -1,0 +1,4 @@
+srcs/*.o
+**/*.o
+*.a
+ftprintf

@@ -16,8 +16,13 @@ SRCS_DIR :=	srcs
 SRCS	:=		main.c				\
 				ft_printf.c			\
 				parser/parser.c		\
-				parser/utils.c		\
-				parser/helper.c
+				utils/parser/ft_parser_find_regex.c \
+				utils/parser/ft_parser_flags_checker.c \
+				utils/parser/ft_parser_get_precision.c \
+				utils/parser/ft_parser_get_regex_len.c \
+				utils/parser/ft_parser_get_width.c \
+				utils/parser/ft_parser_get_zero_flag_width.c \
+				utils/list/ft_list_append.c \
 
 SRCS_FILES 	:= $(addprefix $(SRCS_DIR)/,$(SRCS))
 # OBJECTS

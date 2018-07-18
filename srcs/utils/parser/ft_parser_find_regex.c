@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_regex_len.c                                 :+:      :+:    :+:   */
+/*   ft_parser_find_regex.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/17 17:53:20 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 17:53:35 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/07/17 18:06:52 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/07/17 20:27:07 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../../includes/ft_utils_parser.h"
+
 /*
-**	Find the regex length
+**	Find the regex in format
+**	send string begin with % 
+**  have to return a string with all the regex
 */
-int	ft_get_regex_len(char **src)
+
+char	*ft_parser_find_regex(char **src)
 {
-	int 			len;
-	int 			i;
-	int				j;
-	
-	i = 0;
-	len = 0;
-	while ((*src)[i] != '\0')
-	{
-		j = 0;
-		while (TYPES[j] != '\0')
-		{
-			if ((*src)[i] == TYPES[j])
-				return (++len);
-			j++;
-		}
-		i++;
-		len++;
-	}
-	return (len);
+	char	*regex;	
+	int 	len;
+
+	len = ft_parser_get_regex_len(src);
+	regex = ft_strncut(src, len);
+	return (regex);
 }
