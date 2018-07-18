@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 20:35:32 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 13:31:06 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_flags
 	int			length;
 }				t_flags;
 
+typedef struct      s_data  t_data;
 typedef struct		s_data
 {
     char 			*text;				/* le texte avant le % recontré*/
@@ -34,7 +35,7 @@ typedef struct		s_data
 	void			*value;			    /* la variable envoyé correspondant au type demandé recupéré depuis va_ap */
 	void			*buffer;		    /* la valeur final retourné */
 	int				buffer_len;		    /* la longeur du buffer a afficher */
-    struct s_data	*next;		        /* la prochaine structure */
+    t_data	        *next;		        /* la prochaine structure */
 }		            t_data;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 20:36:11 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 12:38:31 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 /* UTILS */
 # include "ft_utils_parser.h"
 # include "ft_utils_list.h"
+# include "ft_utils_test.h"
 
 # define TYPES "sSpdDioOuUxXcC"
 
 /*
 ** Parser Function
 */
-t_data			*ft_parser(const char *format, va_list ap);
+t_data	        *ft_parser(const char *format, va_list ap);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:46:22 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/17 20:30:45 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/18 13:50:43 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_parser_get_width(char *reg);
 int		ft_parser_get_precision(char *regex);
 t_data	*ft_parser_flags_checker(t_data *elem);
 int		ft_parser_get_zero_flag_width(char *reg);
+t_data  *ft_parser_get_text_and_expression(t_data *elem, char **str);
 
 #endif
 
