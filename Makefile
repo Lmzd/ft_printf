@@ -24,6 +24,10 @@ SRCS	:=		main.c				\
 				utils/parser/ft_parser_get_width.c \
 				utils/parser/ft_parser_get_text_and_expression.c \
 				utils/parser/ft_parser_get_zero_flag_width.c \
+				utils/parser/va_arg/ft_parser_va_arg_get_argument.c \
+				utils/parser/va_arg/ft_parser_va_arg_get_double_arg.c \
+				utils/parser/va_arg/ft_parser_va_arg_get_int_arg.c \
+				utils/parser/va_arg/ft_parser_va_arg_get_string_arg.c \
 				utils/list/ft_list_append.c \
 				utils/list/ft_list_create_data_elem.c \
 				utils/test/ft_test_print_list_elem.c \
