@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strhas.c                                       :+:      :+:    :+:   */
+/*   ft_strhas_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/10 16:04:44 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 16:08:06 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/07/18 19:23:29 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/07/18 19:53:42 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strhas(char *str, int c)
-{
-	int i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
+int ft_strhas_str(const char *str, const char *find)
+{
+    char	*src;
+    int i;
+    int j;
+    int f_len;
+
+    i = 0;
+    j = 0;
+    f_len = 0;
+	src = (char *)str;
+	if (!(f_len = ft_strlen(find)))
+		return (0);
+    while (src[i] != '\0')
+    {
+       if (src[i] == find[j])
+			j++;
+		else
+		{
+			i -= j;
+			j = 0;
+		}
+		if (j == f_len)
 			return (1);
 		i++;
-	}
-	return (0);
+    }
+    return (0);
 }

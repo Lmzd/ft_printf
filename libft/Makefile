@@ -6,7 +6,7 @@
 #    By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 22:33:17 by lmazeaud          #+#    #+#              #
-#    Updated: 2018/04/30 15:20:05 by lmazeaud         ###   ########.fr        #
+#    Updated: 2018/07/18 16:32:41 by lmazeaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	:=	libft.a
 
 CC		:=	gcc
 
-CFLAGS	:=	-Wall -Werror -Wextra
+CFLAGS	:=	-Wall -Werror -Wextra -g
 
 INCLUDES 	:= includes/
 
