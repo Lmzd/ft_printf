@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 18:15:41 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/19 19:14:05 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 **	each % will be a unique list element
 */
 
-t_data		*ft_parser_format(const char *format)
+t_data		*ft_parser(const char *format)
 {
 	char 	*str;
 	char    *str_mem;
@@ -40,12 +40,4 @@ t_data		*ft_parser_format(const char *format)
 	}
     free(str_mem);
 	return(begin_list);
-}
- 
-t_data		*ft_parser(const char *format)
-{
-	t_data	*begin;
-
-    begin = ft_parser_format(format);
-    return (begin);
 }

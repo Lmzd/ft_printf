@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_formatter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 18:12:57 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 18:28:31 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/19 19:37:01 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 t_data  *ft_formatter(t_data *list, va_list ap)
 {
-    
+    t_data *curr;
+	curr = list;
+	curr = curr->next;
 }

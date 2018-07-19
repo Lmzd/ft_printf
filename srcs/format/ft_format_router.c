@@ -9,9 +9,9 @@
 #include "../../includes/ft_printf.h"
 #include "../../includes/ft_format.h"
 
-void    ft_format_data_with_type(t_data *data)
+void    ft_format_router(t_data *data)
 {
-    while (s_fct)
+    while (g_types)
     {
         if s_data->type = format_fct_pool->type
         {

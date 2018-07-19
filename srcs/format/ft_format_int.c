@@ -1,7 +1,7 @@
 #include "../../includes/ft_printf.h"
 #include "../../includes/ft_format.h"
 
-void	ft_format_int(t_data *data)
+void	ft_format_int(t_data *data, va_list ap)
 {
     char    *str;
 
@@ -35,3 +35,24 @@ void	ft_format_int(t_data *data)
     // data->buffer = str;
     // free (str); // ??cela risque t il de supprimer notre str fraichement assemblée et rangeee dans le buffer de la LL
 }
+/*
+%d
+
+va_arg
+
+long long int value
+u_value ?
+
+1. get arg (cast)
+    if curr->flag == h
+        value = (short)va_arg
+    else if curr->flag == ll
+        value = (long long int)va_arg
+
+
+
+    if current->type == "d"
+        long long int value = (long long int)va_arg
+
+2. 4bits => 2bits => 
+*/
