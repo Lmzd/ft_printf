@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 21:52:54 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/19 10:41:18 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,5 +285,11 @@ char				*ft_strncut(char **src, size_t n);
 int					ft_strhas(char *str, int c);
 
 char				*ft_cutstr(char *src, int c);
+
+int                 ft_strhas_digit(const char *str);
+
+int                 ft_strhas_str(const char *str, const char *find);
+
+int		            ft_strhas_char(char *str, int c);
 
 #endif
