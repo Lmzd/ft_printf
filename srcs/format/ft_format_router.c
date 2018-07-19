@@ -1,25 +1,23 @@
 /*
-** @name:  ft_format_data()
+** @name:  ft_format_route()
 ** @brief:
 ** - prendre une element de la LL
-** - traite la value en fonction des options de format
-** - et renvoie la chaine de char bufferised dans la data structure (pointer : content)
+** - et le route vers la bonne fonction de formattage (en fonction de son type)
+** @return : nothing (buffered string is put in )
 */
 
 #include "../../includes/ft_printf.h"
 #include "../../includes/ft_format.h"
 
-void    ft_format_router(t_data *data)
+void    ft_format_router(t_data *data, va_list ap)
 {
-    while (g_types)
+    int i;
+
+    i = 0;
+    while (g_types[i].type)
     {
-        if s_data->type = format_fct_pool->type
-        {
-            s_data->bufferised = format_fct_pool->f(s_data->value);
-            exit ;
-        }
-        s_fct = s_fct->next;
+        if (data->type == g_types[i].type)
+            g_types[i].f(data, ap);
+        i++;
     }
-    if (data->type == g_types[0].type)
-        data->buffer = g_types[0].f((int)42);
 }
