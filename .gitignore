@@ -1,6 +1,5 @@
-*.o
-**/**/*.o
-**/*.o
+**.o
+libft/obj/*.o
 libft.a
 ftprintf
 *.json

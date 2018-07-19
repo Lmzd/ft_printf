@@ -30,13 +30,20 @@ SRCS	:=		main.c												\
 				utils/test/ft_test_print_list.c						\
 				format/ft_formatter.c								\
 				format/ft_format_router.c							\
+<<<<<<< HEAD
 				# parser/utils/va_arg/ft_parser_va_arg_get_argument.c \
 				# parser/utils/va_arg/ft_parser_va_arg_get_double_arg.c \
 				# parser/utils/va_arg/ft_parser_va_arg_get_int_arg.c \
 				# parser/utils/va_arg/ft_parser_va_arg_get_string_arg.c \
+=======
+				format/ft_format_int.c								\
+				# utils/parser/va_arg/ft_parser_va_arg_get_argument.c \
+				# utils/parser/va_arg/ft_parser_va_arg_get_double_arg.c \
+				# utils/parser/va_arg/ft_parser_va_arg_get_int_arg.c \
+				# utils/parser/va_arg/ft_parser_va_arg_get_string_arg.c \
+>>>>>>> router is complete
 				# test/test_format.c			\
 				
-				# format/ft_format_int.c \
 				# format/ft_formatter.c \
 
 SRCS_FILES 	:= $(addprefix $(SRCS_DIR)/,$(SRCS))
