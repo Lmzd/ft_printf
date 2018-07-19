@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:15:58 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 19:10:00 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/19 11:49:38 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int		ft_parser_get_zero_flag_width(char *reg)
     while (*reg <= 47 || *reg >= 58)
         reg++;
     len = ft_atoi(reg);
-	return (len);
+	return ((!len) ? -1 : len);
 }
