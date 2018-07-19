@@ -9,10 +9,10 @@ void	ft_format_int(t_data *data)
     if (!data)
         exit ;
 
-    /* 1. d'abord modificateurs de taille (h / hh / L / l ...) */
+    /* 1. d'abord modificateurs de type (h / hh / L / l ...) */
     if -1
         continue ;
-    else if h
+    else if (data->flag)
     else if hh
     else if l
     else ?
@@ -20,13 +20,16 @@ void	ft_format_int(t_data *data)
     /* 2. puis la precision (par défaut si rien n'est donné par l'user) */
     if -1
         precision par defaut : 1
-    else 
+    else
 
     /* 3. convertir le nbr to str */
+    //dans une fonction helpers au dessus qui utilise itoa_base
 
     /* 4. puis la largeur */
+    //a l'aide d'une library ?
 
     /* 5. puis les options ( - / + / 0 / ' ' / #) */
+    //toujours a l'aide d'une library ?
 
     /* 6. on commit le change dans le buffer de l'element de LL */
     data->buffer = str;
