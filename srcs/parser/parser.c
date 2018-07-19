@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 22:17:36 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/19 10:07:38 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_data		*ft_parser_format(const char *format)
 
     str_mem = str;
 	str = ft_strdup(format);
-	begin_list = ft_list_create_data_elem();
+	begin_list = curr;
 	while (*str)
 	{
 		curr = ft_list_create_data_elem();
@@ -55,7 +55,6 @@ t_data		*ft_parser_format(const char *format)
 		{
 			curr = ft_parser_options_checker(curr);
 		}
-        ft_test_print_list_elem(curr);
 		ft_list_append(&begin_list, curr);
 	}
     free(str_mem);
@@ -68,5 +67,6 @@ t_data		*ft_parser(const char *format, va_list ap)
 
     begin = ft_parser_format(format);
     begin = ft_parser_content(&begin, ap);
+    ft_test_print_list(&begin);
     return (NULL);
 }

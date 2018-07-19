@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 17:46:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 20:11:43 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/19 09:57:22 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_list_append(t_data **lst, t_data *new)
 	}
 	else
 	{
-		list_tmp = new;
+		*lst = new;
 		new->next = NULL;
 	}
 }
