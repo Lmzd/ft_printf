@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 12:16:00 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 22:07:41 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/19 18:29:42 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@ void    ft_test_print_list_elem(t_data *elem)
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     printf("Text    : %s\n", elem->text);
     printf("Expres  : %s\n", elem->expression);
-    printf("            ~~~~~~~~~~~~                  \n");
-    printf("d_val   : %f\n", elem->d_val);
-    printf("i_val   : %d\n", elem->i_val);
-    printf("s_val   : %s\n", elem->s_val);
     printf("            ~~~~~~~~~~~~                  \n");
     printf("Type    : %c\n", elem->type);
     printf("Width   : %d\n", elem->width);

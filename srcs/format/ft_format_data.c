@@ -11,15 +11,15 @@
 
 void    ft_format_data_with_type(t_data *data)
 {
-    // while (s_fct)
-    // {
-    //     if s_data->type = format_fct_pool->type
-    //     {
-    //         s_data->bufferised = format_fct_pool->f(s_data->value);
-    //         exit ;
-    //     }
-    //     s_fct = s_fct->next;
-    // }
+    while (s_fct)
+    {
+        if s_data->type = format_fct_pool->type
+        {
+            s_data->bufferised = format_fct_pool->f(s_data->value);
+            exit ;
+        }
+        s_fct = s_fct->next;
+    }
     if (data->type == g_types[0].type)
         data->buffer = g_types[0].f((int)42);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 17:41:54 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/19 18:37:56 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@
 /*
 ** Parser Function
 */
-t_data	        *ft_parser(const char *format);
+t_data	*ft_parser(const char *format);
 
+/*
+** Formatter Function
+*/
+t_data  *ft_formatter(t_data *list, va_list ap);
 
 /*
 ** TESTS
 */
-
 void test_format_01();
 
 #endif

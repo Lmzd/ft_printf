@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 17:44:39 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/19 18:15:41 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ t_data		*ft_parser(const char *format)
 	t_data	*begin;
 
     begin = ft_parser_format(format);
-    ft_test_print_list(&begin);
     return (begin);
 }
