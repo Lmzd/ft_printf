@@ -9,12 +9,12 @@ void    ft_format_data_with_type(t_data *data);
 typedef struct	s_fmt_type
 {
 	char	type;
-	char	*(*f)(int);
+	char	*(*f)(t_data *);
 }				t_fmt_type;
 
 t_fmt_type	g_types[] =
 {
-	{TYPE_INT, &ft_itoa},
+	{TYPE_INT, &ft_type_int},
 	{0, NULL}
 };
 
