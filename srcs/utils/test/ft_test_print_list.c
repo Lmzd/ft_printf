@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_test.h                                    :+:      :+:    :+:   */
+/*   ft_test_print_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/18 12:26:19 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 10:08:44 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/07/19 10:04:41 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/07/19 11:04:12 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TEST_H
-# define FT_TEST_H
+#include "../../../includes/ft_utils_test.h"
 
-# include <stdio.h>
-# include "ft_struct.h"
 
-void    ft_test_print_list_elem(t_data *elem);
-void    ft_test_print_list(t_data **lst);
+void    ft_test_print_list(t_data **lst)
+{
+    t_data  *curr;
 
-#endif
+    curr = *lst;
+    while (curr)
+    {
+        ft_test_print_list_elem(curr);
+        curr = curr->next;
+    }
+}
