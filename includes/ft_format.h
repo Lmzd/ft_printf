@@ -1,7 +1,9 @@
 #ifndef FT_FORMAT_H
 # define FT_FORMAT_H
 
-void    ft_format_data_with_type(t_data *data);
+# include "ft_formatters.h"
+
+void	ft_format_router(t_data *data, va_list ap);
 
 # define TYPE_INT	'd'
 
@@ -9,7 +11,7 @@ void    ft_format_data_with_type(t_data *data);
 typedef struct	s_fmt_type
 {
 	char	type;
-	char	*(*f)(t_data *, va_list);
+	void	(*f)(t_data *, va_list);
 }				t_fmt_type;
 
 t_fmt_type	g_types[] =
