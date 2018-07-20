@@ -30,6 +30,8 @@ SRCS	:=		main.c												\
 				utils/test/ft_test_print_list.c						\
 				format/ft_format.c									\
 				format/ft_format_router.c							\
+				format/formatters/ft_format_int.c					\
+				printer/ft_printer.c
 				# parser/utils/va_arg/ft_parser_va_arg_get_argument.c \
 				# parser/utils/va_arg/ft_parser_va_arg_get_double_arg.c \
 				# parser/utils/va_arg/ft_parser_va_arg_get_int_arg.c \
