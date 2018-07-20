@@ -6,7 +6,7 @@
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 22:47:00 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/20 13:38:08 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,23 @@
 # define TYPES "sSpdDioOuUxXcC"
 
 /*
-** Parser Function
+** Parser function
 */
 t_data	*ft_parser(const char *format);
 
 /*
-** Formatter Function
+** Formatter functions
 */
 void	ft_formatter(t_data *list, va_list ap);
 void	ft_format_router(t_data *data, va_list ap);
 
 /*
-** TESTS
+** Printer functions
+*/
+void	ft_printer(t_data *data);
+
+/*
+** Tests functions
 */
 void test_format_01();
 

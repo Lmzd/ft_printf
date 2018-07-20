@@ -3,8 +3,6 @@
 
 # include "ft_formatters.h"
 
-void	ft_format_router(t_data *data, va_list ap);
-
 # define TYPE_INT	'd'
 
 
