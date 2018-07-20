@@ -13,14 +13,8 @@ void	ft_format_width_handler(t_data *data)
 			extension = '0';
 	}
 	str = ft_strnew(width + 1)
-	str[width] = '\0'
-	while(i < width - len)
-	{
-		on fill avec des extensions
-	}
-	then 
-	i++ et on continue de fill la str
-
-	42 sur 6 digit
-
+	while(len--)
+		str[--width] = data->buffer[len];
+	while(width--)
+		str[width] = extension;
 }
