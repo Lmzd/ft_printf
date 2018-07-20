@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 10:41:18 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/20 14:13:16 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,5 +291,7 @@ int                 ft_strhas_digit(const char *str);
 int                 ft_strhas_str(const char *str, const char *find);
 
 int		            ft_strhas_char(char *str, int c);
+
+char                *ft_itoa_intmax(intmax_t nb);
 
 #endif
