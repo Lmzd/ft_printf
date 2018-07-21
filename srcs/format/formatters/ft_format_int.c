@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 17:22:02 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/21 18:53:49 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void	ft_format_int(t_data *elem, va_list ap)
     ft_format_int_modifier(elem, ap);
     ft_format_width_handler(elem);
     ft_format_plus_flag_handler(elem);
+    ft_format_space_flag_handler(elem);
 }

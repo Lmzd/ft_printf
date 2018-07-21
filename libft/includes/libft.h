@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 14:21:38 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/21 17:21:25 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,6 +294,8 @@ int		            ft_strhas_char(char *str, int c);
 
 char                *ft_itoa_intmax(intmax_t nb);
 
-char	*ft_strreplace(char *str, int letter, size_t index);
+char	            *ft_strreplace(char *str, int letter, size_t index);
+
+intmax_t            ft_abs_intmax(intmax_t value);
 
 #endif

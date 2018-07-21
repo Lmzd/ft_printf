@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 14:43:32 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/21 18:53:31 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_formatter(t_data *list, va_list ap);
 void	ft_format_router(t_data *data, va_list ap);
 void 	ft_format_width_handler(t_data *data);
 void	ft_format_plus_flag_handler(t_data *elem);
+void    ft_format_space_flag_handler(t_data *elem);
+
 /*
 ** Printer functions
 */

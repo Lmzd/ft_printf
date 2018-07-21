@@ -20,6 +20,7 @@ SRCS	:=		main.c												\
 				format/ft_format_router.c							\
 				format/ft_format_width_handler.c					\
 				format/ft_format_plus_flag_handler.c				\
+				format/ft_format_space_flag_handler.c				\
 				format/formatters/ft_format_int.c					\
 				parser/ft_parser.c									\
 				parser/utils/ft_parser_find_regex.c					\
@@ -29,6 +30,7 @@ SRCS	:=		main.c												\
 				parser/utils/ft_parser_get_width.c					\
 				parser/utils/ft_parser_get_text_and_expression.c	\
 				parser/utils/ft_parser_get_zero_flag_width.c		\
+				parser/utils/ft_parser_put_default.c				\
 				printer/ft_printer.c								\
 				utils/list/ft_list_append.c							\
 				utils/list/ft_list_create_data_elem.c				\
