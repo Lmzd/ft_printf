@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 13:33:57 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/20 13:40:15 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/21 13:14:54 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	ft_printer (t_data *data)
 		exit (0);
 	while (data)
 	{
-		write(1, data->buffer, ft_strlen(data->buffer));
+        if (data->text)
+            write(1, data->text, ft_strlen(data->text));
+		if (data->buffer)
+            write(1, data->buffer, ft_strlen(data->buffer));
 		data = data->next;
 	}
 }
