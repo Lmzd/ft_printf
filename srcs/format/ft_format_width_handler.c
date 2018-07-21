@@ -38,8 +38,8 @@ void    ft_format_width_handler_helper(t_data *data, int width, int len, char ex
             data->buffer = ft_strreplace(str, '-', --index);
             return ;
         }
-    } 
-	data->buffer = str;
+    }
+	data->buffer = ft_strdup(str);
 	free(str);
 }
 

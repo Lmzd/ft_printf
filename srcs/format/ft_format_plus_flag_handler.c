@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 14:23:26 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/21 18:53:33 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/21 21:10:54 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void    ft_format_plus_flag_handler_helper(t_data *elem, char *buf, int len)
     free(str);
     free(buf);
 }
+
 void	ft_format_plus_flag_handler(t_data *elem)
 {
 	int		len;
