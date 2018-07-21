@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 18:53:49 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/21 21:27:14 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void    ft_format_int_modifier(t_data *elem, va_list ap)
         value = va_arg(ap, int);
     elem->neg = (value >= 0) ? 0 : 1;
     elem->buffer = ft_itoa_intmax(ft_abs_intmax(value));
+    elem->buffer_len = ft_strlen(elem->buffer);
 }
 
 
@@ -44,7 +45,15 @@ void	ft_format_int(t_data *elem, va_list ap)
     char *value;
 
     ft_format_int_modifier(elem, ap);
-    ft_format_width_handler(elem);
-    ft_format_plus_flag_handler(elem);
-    ft_format_space_flag_handler(elem);
+    if (!elem->flags.dash \
+       || (elem->flags.dash && (elem->width < elem->buffer_len)))
+    {
+        ft_format_width_handler(elem);
+        ft_format_plus_flag_handler(elem);
+        ft_format_space_flag_handler(elem);
+    } else {
+        ft_format_moins_flag_handler(elem);
+        ft_format_moins_flag_space_or_plus_handler(elem);
+    }
+
 }

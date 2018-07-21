@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 17:14:06 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/21 19:38:41 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct	s_flags
 	int			plus;
 	int			dash;
 	int			spaces;
-	int			length;
 }				t_flags;
 
 typedef struct	s_modifier
