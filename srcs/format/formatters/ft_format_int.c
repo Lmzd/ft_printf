@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 14:48:45 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/21 17:22:02 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void    ft_format_int_modifier(t_data *elem, va_list ap)
         value = va_arg(ap, size_t);
     else
         value = va_arg(ap, int);
-    elem->buffer = ft_itoa_intmax(value);
+    elem->neg = (value >= 0) ? 0 : 1;
+    elem->buffer = ft_itoa_intmax(ft_abs_intmax(value));
 }
 
 
