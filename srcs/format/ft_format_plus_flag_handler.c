@@ -3,41 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_plus_flag_handler.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 14:23:26 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/21 14:47:41 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/21 17:15:18 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
+void    ft_format_plus_flag_handler_helper(t_data *elem, char *buf, int len)
+{
+    char *str;
+    
+    str = ft_strnew(len + 2);
+    str[0] = '+';
+    ft_strcat(str, buf);
+    elem->buffer = ft_strdup(str);
+    free(str);
+    free(buf);
+}
 void	ft_format_plus_flag_handler(t_data *elem)
 {
 	int		len;
 	int 	width;
 	int		index;
 	char 	*str;
+    char    *buf;
 
-	if (!elem->flags.plus)
+	if (!elem->flags.plus || elem->neg)
 		return ;
 	width = elem->width;
-	len = ft_strlen(elem->buffer);
-	if (len >= width)
-	{
-		if (!(str = (char*)malloc(sizeof(char) * len + 2)))
-			return ;
-		str[0] = '+';
-		 elem->buffer = ft_strcat(str, elem->buffer);
-	} else {
+    buf = ft_strdup(elem->buffer);
+	len = ft_strlen(buf);
+	if (len >= width && !elem->flags.zero && buf[0] != ' ')
+		ft_format_plus_flag_handler_helper(elem, buf, len);
+	else {
 		if (elem->flags.zero)
 			elem->buffer[0] = '+';
 		else {
 			index = 0;
-			while (elem->buffer[index] < '0' && elem->buffer[index] > '9')
+			while (buf[index] < '0' || buf[index] > '9')
 				index++;
-			index--;
-			elem->buffer = ft_strreplace(elem->buffer, '+', index);
+			elem->buffer = ft_strreplace(elem->buffer, '+', --index);
 		}
 	}
 }
