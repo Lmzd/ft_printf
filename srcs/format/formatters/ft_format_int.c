@@ -6,7 +6,7 @@
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/20 16:48:28 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/21 14:48:45 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void	ft_format_int(t_data *elem, va_list ap)
 
     ft_format_int_modifier(elem, ap);
     ft_format_width_handler(elem);
+    ft_format_plus_flag_handler(elem);
 }

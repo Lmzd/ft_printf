@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strreplace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/11 04:50:07 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 14:39:19 by pblouin          ###   ########.fr       */
+/*   Created: 2018/07/21 14:14:02 by pblouin           #+#    #+#             */
+/*   Updated: 2018/07/21 14:22:10 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strreplace(char *str, int letter, size_t index)
 {
-	size_t	dest_len;
-	size_t	i;
+	size_t len;
 
-	dest_len = ft_strlen(dest);
-	(void)ft_strlen(src);
-	if (!src)
+	if (str == NULL)
 		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		dest[dest_len + i] = src[i];
-		i++;
-	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	len = ft_strlen(str);
+	if (index > len - 1)
+		return (NULL);
+	str[index] = letter;
+	return (str);
 }

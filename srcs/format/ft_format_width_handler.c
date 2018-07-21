@@ -16,9 +16,13 @@ void	ft_format_width_handler(t_data *data)
 		if (data->flags.zero)
 			extension = '0';
 	}
+	else
+		return ;
 	str = ft_strnew(width + 1);
 	while(len--)
 		str[--width] = data->buffer[len];
 	while(width--)
 		str[width] = extension;
+	data->buffer = str;
+	free(str);
 }
