@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 19:15:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 11:55:32 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/21 16:34:49 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,27 @@ t_data  *ft_parser_flags_checker(t_data *elem, char *regex)
 
 t_data  *ft_parser_precision_and_width(t_data *elem, char *regex)
 {
-    t_data 	*curr;
-
-    curr = elem;
     if (ft_strhas_digit(regex))
     {
         if (ft_strhas_char(regex, '.')) 
         {
-            if (curr->flags.zero)
-                curr->width = ft_parser_get_zero_flag_width(ft_cutstr(regex, '.'));
+            if (elem->flags.zero)
+                elem->width = ft_parser_get_zero_flag_width(ft_cutstr(regex, '.'));
             else
-                curr->width = ft_parser_get_width(regex);
-            curr->precision = ft_parser_get_precision(regex);
+                elem->width = ft_parser_get_width(regex);
+            elem->precision = ft_parser_get_precision(regex);
         } else {
-            curr->width = ft_parser_get_width(regex);
-            curr->precision = -1;
+            if (elem->flags.zero)
+                elem->width = ft_parser_get_zero_flag_width(regex);
+            else   
+                elem->width = ft_parser_get_width(regex);
+            elem->precision = -1;
         }
     } else {
-        curr->width = -1;
-        curr->precision = -1;
+        elem->width = -1;
+        elem->precision = -1;
     }
-    return (curr);	
+    return (elem);	
 }
 
 t_data  *ft_parser_modifier_checker(t_data *elem, char *regex)
