@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 13:33:57 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/21 22:00:31 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/21 22:12:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ int 	ft_printer (t_data *data)
 	}
     if (res)
         write(1, res, len);
-    return (len);
+    return (len + 1);
 }
