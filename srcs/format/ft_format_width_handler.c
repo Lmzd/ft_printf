@@ -51,7 +51,7 @@ void	ft_format_width_handler(t_data *data)
 
 	len = ft_strlen(data->buffer);
 	width = data->width;
-    if (width < 0)
+    if (width <= len)
     {
         ft_format_no_width_handler(data, width, len);
         return ;
