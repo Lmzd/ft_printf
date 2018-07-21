@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:54:47 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/20 16:38:15 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/21 21:56:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ int		ft_printf(const char *format, ...)
     //ft_test_print_list(&begin_lst);
 	ft_formatter(begin_lst, ap);
 	va_end(ap);
-	ft_printer(begin_lst);
-	return (0);
+	return (ft_printer(begin_lst));
 }

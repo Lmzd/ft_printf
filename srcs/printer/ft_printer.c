@@ -6,23 +6,42 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 13:33:57 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/21 13:14:54 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/21 22:00:31 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void	ft_printer (t_data *data)
+int 	ft_printer (t_data *data)
 {
+    char    *res;
+    int     len;
+    t_data  *begin;
+
+    begin = data;
 	/* error handlin */
+    len = 0;
 	if (!data)
 		exit (0);
 	while (data)
 	{
         if (data->text)
-            write(1, data->text, ft_strlen(data->text));
+            len += ft_strlen(data->text);
 		if (data->buffer)
-            write(1, data->buffer, ft_strlen(data->buffer));
+            len += ft_strlen(data->buffer);
 		data = data->next;
 	}
+    res = ft_strnew(len);
+    data = begin;
+    while (data)
+	{
+        if (data->text)
+            ft_strcat(res, data->text);
+		if (data->buffer)
+            ft_strcat(res, data->buffer);
+		data = data->next;
+	}
+    if (res)
+        write(1, res, len);
+    return (len);
 }
