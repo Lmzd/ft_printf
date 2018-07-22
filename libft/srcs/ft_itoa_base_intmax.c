@@ -6,14 +6,12 @@
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 00:19:42 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 16:09:12 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/07/22 16:53:59 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-#define CHAR_SET	"0123456789abcdef"
 
 static int		ft_nb_len_base(intmax_t n, int base)
 {
@@ -30,7 +28,7 @@ char			*ft_itoa_base_intmax(intmax_t n, int base)
 	int				is_neg;
 	int				nb_len;
 	char			*res;
-	static char		*str_charset = CHAR_SET;	
+	static char		str_charset[] = "0123456789abcdef";
 
 	if (n == -9223372036854775807)
 		return (ft_strdup("-9223372036854775807"));

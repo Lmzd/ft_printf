@@ -9,6 +9,8 @@
 # define TYPE_HEX_1	'x'
 # define TYPE_HEX_2	'X'
 
+# define HEX_PREFIX  "0x"
+
 
 typedef struct	s_fmt_type
 {
