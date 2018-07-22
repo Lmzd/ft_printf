@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 17:42:46 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 11:52:17 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 17:19:59 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int		ft_parser_get_precision(char *regex)
 		regex++;
     regex++;
 	len = ft_atoi(regex);
-	return ((!len) ? -1 : len);
+	return ((len < 0) ? -1 : len);
 }

@@ -6,26 +6,22 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 19:15:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 16:34:49 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 19:08:20 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/ft_utils_parser.h"
 
-t_data  *ft_parser_flags_checker(t_data *elem, char *regex)
+void    ft_parser_flags_checker(t_data *elem, char *regex)
 {
-    t_data 	*curr;
-
-    curr = elem;
-    curr->flags.plus = ft_strhas_char(regex, '+');
-	curr->flags.dash = ft_strhas_char(regex, '-');
-	curr->flags.hashtag = ft_strhas_char(regex, '#');
-	curr->flags.spaces = ft_strhas_char(regex, ' ');
-	curr->flags.zero = ft_strhas_char(regex, '0');
-    return (curr);
+    elem->flags.plus = ft_strhas_char(regex, '+');
+	elem->flags.dash = ft_strhas_char(regex, '-');
+	elem->flags.hashtag = ft_strhas_char(regex, '#');
+	elem->flags.spaces = ft_strhas_char(regex, ' ');
+	elem->flags.zero = ft_strhaszero(regex, '0');
 }
 
-t_data  *ft_parser_precision_and_width(t_data *elem, char *regex)
+void    ft_parser_precision_and_width(t_data *elem, char *regex)
 {
     if (ft_strhas_digit(regex))
     {
@@ -47,36 +43,28 @@ t_data  *ft_parser_precision_and_width(t_data *elem, char *regex)
         elem->width = -1;
         elem->precision = -1;
     }
-    return (elem);	
 }
 
-t_data  *ft_parser_modifier_checker(t_data *elem, char *regex)
+void    ft_parser_modifier_checker(t_data *elem, char *regex)
 {
-    t_data 	*curr;
-
-    curr = elem;
-    curr->modifier.h = ft_strhas_char(regex, 'h');
-    curr->modifier.l = ft_strhas_char(regex, 'l');
-    curr->modifier.j = ft_strhas_char(regex, 'j');
-    curr->modifier.z = ft_strhas_char(regex, 'z');
-    curr->modifier.hh = ft_strhas_str(regex, "hh");
-    curr->modifier.ll = ft_strhas_str(regex, "ll");
-    return (curr);
+    elem->modifier.h = ft_strhas_char(regex, 'h');
+    elem->modifier.l = ft_strhas_char(regex, 'l');
+    elem->modifier.j = ft_strhas_char(regex, 'j');
+    elem->modifier.z = ft_strhas_char(regex, 'z');
+    elem->modifier.hh = ft_strhas_str(regex, "hh");
+    elem->modifier.ll = ft_strhas_str(regex, "ll");
 }
 
-t_data	*ft_parser_options_checker(t_data *elem)
+void    ft_parser_options_checker(t_data *elem)
 {
-	t_data 	*curr;
 	int		len;
 	char 	*regex;
 
-	curr = elem;
-	regex = ft_strdup(curr->expression);
+	regex = ft_strdup(elem->expression);
 	len = ft_strlen(regex);
-	curr->type = regex[len - 1];
-	curr = ft_parser_flags_checker(curr, regex);
-    curr = ft_parser_precision_and_width(curr, regex);
-    curr = ft_parser_modifier_checker(curr, regex);
+	elem->type = regex[len - 1];
+	ft_parser_flags_checker(elem, regex);
+    ft_parser_precision_and_width(elem, regex);
+    ft_parser_modifier_checker(elem, regex);
 	free(regex);
-	return (curr);
 }
