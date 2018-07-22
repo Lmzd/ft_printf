@@ -6,11 +6,7 @@
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 20:38:55 by lmazeaud          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/07/22 16:15:26 by pblouin          ###   ########.fr       */
-=======
-/*   Updated: 2018/07/22 19:44:04 by lmazeaud         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2018/07/22 19:58:41 by pblouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +14,20 @@ int		ft_printf(const char *format, ...);
 #include <stdio.h>
 #include "../includes/ft_printf.h"
 
+void	check(char *s, intmax_t nbr)
+{
+	printf("%s,%jd,[", s, nbr);
+	printf(s, nbr);
+	printf("],[");
+  fflush(stdout);
+  ft_printf(s, nbr);
+  printf("]\n");
+}
+
 
 int 	main(int ac, char **av)
 {
+  printf("expression,number,printf_result,ft_printf_result");
 	// //ft_printf("je m'appelle %00000008.4hhs et je suis a %+6x et tout va bien %#42d","Louis", 42, 21);
 	// // ft_printf("test des d <%+8d>\n", 12000042);
     // // ft_printf("test des d <%+8d>\n", -42);
@@ -95,4 +102,43 @@ int 	main(int ac, char **av)
 
   ft_printf("%d\n", ft_printf("16chiffre 1 %-12.6d chiffre 2 %-12.6d\n", 42, -42));
   printf("%d\n\n", printf("16chiffre 1 %-12.6d chiffre 2 %-12.6d\n\n", 42, -42));
+  // ft_printf("%d\n", ft_printf("15 chiffre 1 %.d chiffre 2 %.d\n", 42, -42));
+  //  fflush(stdout);
+  // printf("%d\n\n", printf("15 chiffre 1 %.d chiffre 2 %.d\n\n", 42, -42));
+  //  fflush(stdout);
+
+  // ft_printf("%d\n", ft_printf("16 chiffre 1 %.6d chiffre 2 %.6d\n", 42, -42));
+  //  fflush(stdout);
+  // printf("%d\n\n", printf("16 chiffre 1 %.6d chiffre 2 %.6d\n\n", 42, -42));
+  //  fflush(stdout);
+
+  printf("%lu\n", sizeof(char));
+  printf("%lu\n", sizeof(short));
+  printf("%lu\n", sizeof(int));
+  printf("%lu\n", sizeof(long int));
+  printf("%lu\n", sizeof(long long int));
+  printf("%lu\n", sizeof(intmax_t));
+  printf("%lu\n", sizeof(size_t));
+
+  printf("==== TEST HEX ====\n");
+
+  check("%x", 512);
+	check("%x", 18);
+	check("%x", -512);
+	check("%x", -18);
+	check("%x", 0);
+	check("%.2x", 0);
+	check("%.3x", 0);
+	check("%.3x", 0);
+	check("%.2x", 10);
+	check("%.3x", 10);
+	check("%.3x", 10);
+	check("%.2x", 0);
+	check("%#x", 0);
+	check("%#x", 1);
+	check("%#x", -1);
+	check("%#x", 16);
+	check("%#x", 455);
+	check("%#x", -455);
+
 }
