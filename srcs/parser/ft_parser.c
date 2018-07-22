@@ -6,13 +6,12 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 19:00:07 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 20:44:24 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
- 
 /*
 **	Take the format string recieve in arg cut it to store the regex
 **	each % will be a unique list element
