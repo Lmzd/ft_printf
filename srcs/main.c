@@ -6,7 +6,11 @@
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 20:38:55 by lmazeaud          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2018/07/22 16:15:26 by pblouin          ###   ########.fr       */
+=======
+/*   Updated: 2018/07/22 19:44:04 by lmazeaud         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +85,14 @@ int 	main(int ac, char **av)
 //   ft_printf("%d\n", ft_printf("14chiffre 1 %+-5d chiffre 2 %+-5d\n", 42, -42));
 //   printf("%d\n\n", printf("14chiffre 1 %+-5d chiffre 2 %+-5d\n\n", 42, -42));
 
-  ft_printf("%d\n", ft_printf("15 chiffre 1 %.d chiffre 2 %.d\n", 42, -42));
-   fflush(stdout);
-  printf("%d\n\n", printf("15 chiffre 1 %.d chiffre 2 %.d\n\n", 42, -42));
-   fflush(stdout);
+//   ft_printf("%d\n", ft_printf("15 chiffre 1 %.d chiffre 2 %.d\n", 42, -42));
+//    fflush(stdout);
+//   printf("%d\n\n", printf("15 chiffre 1 %.d chiffre 2 %.d\n\n", 42, -42));
+//    fflush(stdout);
 
-  ft_printf("%d\n", ft_printf("16 chiffre 1 %.6d chiffre 2 %.6d\n", 42, -42));
-   fflush(stdout);
-  printf("%d\n\n", printf("16 chiffre 1 %.6d chiffre 2 %.6d\n\n", 42, -42));
-   fflush(stdout);
+  ft_printf("%d\n", ft_printf("16chiffre 1 %12.6d chiffre 2 %12.6d\n", 42, -42));
+  printf("%d\n\n", printf("16chiffre 1 %12.6d chiffre 2 %12.6d\n\n", 42, -42));
+
+  ft_printf("%d\n", ft_printf("16chiffre 1 %-12.6d chiffre 2 %-12.6d\n", 42, -42));
+  printf("%d\n\n", printf("16chiffre 1 %-12.6d chiffre 2 %-12.6d\n\n", 42, -42));
 }
-     

@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/07/22 16:48:40 by pblouin          ###   ########.fr       */
-=======
-/*   Updated: 2018/07/22 19:43:18 by lmazeaud         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2018/07/22 19:52:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

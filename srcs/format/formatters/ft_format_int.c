@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/07/22 16:09:13 by pblouin          ###   ########.fr       */
-=======
-/*   Updated: 2018/07/22 19:45:22 by lmazeaud         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2018/07/22 19:52:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
