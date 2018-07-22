@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 19:38:41 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 23:20:01 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct		s_data
 	char			type;			    /* le type du content */
 	int				precision;		    /* la precision exigée en int */
     int             neg;                /* int value is negative */
+    int             null;               /* int value equal 0 */
 	char			*buffer;		    /* la valeur final retourné */
 	int				buffer_len;		    /* la longeur du buffer a afficher */
     t_data	        *next;		        /* la prochaine structure */

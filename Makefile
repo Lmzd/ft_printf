@@ -26,6 +26,7 @@ SRCS	:=		main.c												\
 				format/ft_format_precision_handler.c				\
 				format/ft_format_precison_width_handler.c			\
 				format/ft_format_precision_moins_flag_handler.c		\
+				format/ft_format_null_value.c						\
 				format/formatters/ft_format_int.c					\
 				format/formatters/ft_format_hex.c					\
 				parser/ft_parser.c									\

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 19:52:15 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 23:29:48 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "ft_utils_test.h"
 
 # define TYPES "sSpdDioOuUxXcC"
-
+# define HEX_PREFIX  "0x"
 
 /*
 ** Parser function
@@ -44,6 +44,7 @@ void    ft_format_moins_flag_space_or_plus_handler(t_data *elem);
 void    ft_format_precision_handler(t_data *elem);
 void    ft_format_precison_width_handler(t_data *elem);
 void    ft_format_precision_moins_flag_handler(t_data *elem);
+void    ft_format_null_value(t_data *elem);
 
 
 

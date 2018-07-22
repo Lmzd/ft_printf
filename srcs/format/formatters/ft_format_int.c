@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 19:52:15 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 23:32:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void    ft_format_int_modifier(t_data *elem, va_list ap)
         value = va_arg(ap, size_t);
     else
         value = va_arg(ap, int);
+    elem->null = (!value) ? 1 : 0;
     elem->neg = (value >= 0) ? 0 : 1;
     elem->buffer = ft_itoa_base_intmax(ft_abs_intmax(value), 10);
     elem->buffer_len = ft_strlen(elem->buffer);
@@ -65,4 +66,5 @@ void	ft_format_int(t_data *elem, va_list ap)
             ft_format_moins_flag_space_or_plus_handler(elem);
         }
     }
+    ft_format_null_value(elem);
 }
