@@ -1,68 +1,68 @@
 
 #include "../../includes/ft_printf.h"
 
-void    ft_format_no_width_handler(t_data *data, int width, int len)
+void    ft_format_no_width_handler(t_data *elem, int width, int len)
 {
     char	*str;
 
-    if (data->neg)
+    if (elem->neg)
     {
             str = ft_strnew(len + 2);
             str[0] = '-';
-            ft_strcat(str, data->buffer);
-            data->buffer = ft_strdup(str);
+            ft_strcat(str, elem->buffer);
+            elem->buffer = ft_strdup(str);
             free(str);
     }
 }
 
-void    ft_format_width_handler_helper(t_data *data, int width, int len, char extension)
+void    ft_format_width_handler_helper(t_data *elem, int width, int len, char extension)
 {
     char	*str;
     int     index;
     int     neg;
     
-    neg = data->neg;
+    neg = elem->neg;
     str = ft_strnew(width + neg + 1);
 	while(len--)
-		str[--width] = data->buffer[len];
+		str[--width] = elem->buffer[len];
 	while(width--)
 		str[width] = extension;
     if (neg)
     {
-        if (data->flags.zero)
+        if (elem->flags.zero)
             str[0] = '-';
         else {
             index = 0;
             while (str[index] < '0' || str[index] > '9')
                 index++;
-            data->buffer = ft_strreplace(str, '-', --index);
+            elem->buffer = ft_strreplace(str, '-', --index);
             return ;
         }
     }
-	data->buffer = ft_strdup(str);
+	elem->buffer = ft_strdup(str);
 	free(str);
 }
 
-void	ft_format_width_handler(t_data *data)
+void	ft_format_width_handler(t_data *elem)
 {
 	int		len;
 	int 	width;
 	char	extension;
 
-	len = ft_strlen(data->buffer);
-	width = data->width;
+	len = ft_strlen(elem->buffer);
+	width = elem->width;
     if (width <= len)
     {
-        ft_format_no_width_handler(data, width, len);
+        ft_format_no_width_handler(elem, width, len);
         return ;
     }
 	extension = ' ';
 	if (width > len)
     {
-		if (data->flags.zero)
+		if (elem->flags.zero)
 			extension = '0';
     }
     else
 		return ;
-	ft_format_width_handler_helper(data, width, len, extension);
+	ft_format_width_handler_helper(elem, width, len, extension);
 }
