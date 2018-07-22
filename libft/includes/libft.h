@@ -6,7 +6,11 @@
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2018/07/22 16:49:44 by pblouin          ###   ########.fr       */
+=======
+/*   Updated: 2018/07/22 17:25:03 by lmazeaud         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,8 +298,13 @@ int		            ft_strhas_char(char *str, int c);
 
 char                *ft_itoa_base_intmax(intmax_t n, int base);
 
+int		            ft_strhaszero(char *str, int c);
+
+char                *ft_itoa_intmax(intmax_t nb);
+
 char	            *ft_strreplace(char *str, int letter, size_t index);
 
 intmax_t            ft_abs_intmax(intmax_t value);
+
 
 #endif
