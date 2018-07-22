@@ -6,7 +6,11 @@
 /*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2018/07/22 16:09:13 by pblouin          ###   ########.fr       */
+=======
+/*   Updated: 2018/07/22 19:45:22 by lmazeaud         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +46,27 @@ void    ft_format_int_modifier(t_data *elem, va_list ap)
 
 void	ft_format_int(t_data *elem, va_list ap)
 {
-    char *value;
-
     ft_format_int_modifier(elem, ap);
     if (!elem->flags.dash \
        || (elem->flags.dash && (elem->width < elem->buffer_len)))
     {
-        ft_format_width_handler(elem);
-        ft_format_plus_flag_handler(elem);
-        ft_format_space_flag_handler(elem);
+        if (elem->precision > -1)
+        {
+            ft_format_precision_handler(elem);
+            ft_format_precison_width_handler(elem);
+        } else {
+            ft_format_width_handler(elem);
+            ft_format_plus_flag_handler(elem);
+            ft_format_space_flag_handler(elem);
+        }
     } else {
-        ft_format_moins_flag_handler(elem);
-        ft_format_moins_flag_space_or_plus_handler(elem);
+        if (elem->precision > -1)
+        {
+            ft_format_precision_handler(elem);
+            ft_format_precision_moins_flag_handler(elem);
+        } else {
+            ft_format_moins_flag_handler(elem);
+            ft_format_moins_flag_space_or_plus_handler(elem);
+        }
     }
-
 }
