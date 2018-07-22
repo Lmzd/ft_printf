@@ -24,6 +24,7 @@ SRCS	:=		main.c												\
 				format/ft_format_space_flag_handler.c				\
 				format/ft_format_moins_flag_space_or_plus_handler.c	\
 				format/formatters/ft_format_int.c					\
+				format/formatters/ft_format_hex.c					\
 				parser/ft_parser.c									\
 				parser/utils/ft_parser_find_regex.c					\
 				parser/utils/ft_parser_options_checker.c			\
