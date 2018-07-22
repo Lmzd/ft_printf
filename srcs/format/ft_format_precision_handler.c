@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 15:28:40 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 18:59:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 22:13:16 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 void    ft_format_precision_handler_helper(t_data *elem, char *str)
 {
     char    *res;
-    
-    if (elem->neg)
-        res = ft_strjoin("-", str);
-    else if (elem->flags.plus) 
-        res = ft_strjoin("+", str);
-    else if(elem->flags.spaces)
-        res = ft_strjoin(" ", str);
-    elem->buffer = ft_strdup(res);
-    free(res);
-}
 
+    if (elem->flags.plus)
+    {
+        res = ft_strjoin("+", str);
+        free(res);
+    } 
+    else if(elem->flags.spaces)
+    {
+        res = ft_strjoin(" ", str);
+        free(res);
+    }
+    elem->buffer = ft_strdup(res);
+}
 
 void    ft_format_precision_handler(t_data *elem)
 {
@@ -44,7 +46,7 @@ void    ft_format_precision_handler(t_data *elem)
         str[--preci] = buf[len];
     while (preci--)
         str[preci] = '0';
-    if (elem->flags.plus || elem->flags.spaces || elem->neg)
+    if (elem->flags.plus || elem->flags.spaces)
        ft_format_precision_handler_helper(elem, str);
     else 
         elem->buffer = ft_strdup(str);
