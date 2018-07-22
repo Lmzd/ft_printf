@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 17:07:37 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/21 22:11:52 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 15:24:01 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void    ft_format_moins_flag_handler(t_data *elem)
     buf = ft_strdup(elem->buffer);
     str = ft_strnew(width - len);
     range = width - len;
+    if (elem->neg)
+    {
+        str[0] = '-';
+        range--;
+    }
     while (range--)
         str[--width] = ' ';
     while (len--)
