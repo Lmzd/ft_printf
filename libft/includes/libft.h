@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/07/22 16:49:44 by pblouin          ###   ########.fr       */
-=======
-/*   Updated: 2018/07/22 17:25:03 by lmazeaud         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2018/07/22 20:40:48 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

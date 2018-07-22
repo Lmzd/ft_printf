@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:22:48 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 17:23:33 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/22 21:11:09 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int		ft_strhaszero(char *str, int c)
 	int i;
 
 	i = 0;
-	while (str[i] == '.' && str[i] != '\0')
+	while (str[i] != '.' && str[i] != '\0')
 	{
 		if (str[i] == c)
 			return (1);
