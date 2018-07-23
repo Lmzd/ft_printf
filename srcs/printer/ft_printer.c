@@ -6,42 +6,56 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 13:33:57 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/21 22:17:57 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/23 19:51:07 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-int 	ft_printer (t_data *data)
+void    ft_print_null_bite(t_data *elem, int len)
 {
-    char    *res;
-    int     len;
-    t_data  *begin;
+    if (!elem->flags.dash)
+    {
+        write(1, elem->buffer, len);
+        write(1, "\0", 1);
+        return ;
+    } 
+        write(1, "\0", 1);
+        write(1, elem->buffer, len);
+}
 
-    begin = data;
-	/* error handlin */
-    len = 0;
-	if (!data)
+int 	ft_printer (t_data *elem)
+{
+    int     len;
+    int     total;
+    int     null_bite;
+
+	if (!elem)
 		exit (0);
-	while (data)
+    len = 0;
+    total = 0;
+	while (elem)
 	{
-        if (data->text)
-            len += ft_strlen(data->text);
-		if (data->buffer)
-            len += ft_strlen(data->buffer);
-		data = data->next;
+        if (elem->text)
+        {
+            len = ft_strlen(elem->text);
+            total += len;
+            write(1, elem->text, len);
+        }
+        if (elem->null
+            && (elem->type == 'c' || elem->type == 'C'))
+        {
+            len = ft_strlen(elem->buffer);
+            total += len + 1;
+            ft_print_null_bite(elem, len);
+        }
+		else if (elem->buffer)
+        {
+            len = ft_strlen(elem->buffer);
+            total += len;
+            write(1, elem->buffer, len);
+        }
+		elem = elem->next;
 	}
-    res = ft_strnew(len);
-    data = begin;
-    while (data)
-	{
-        if (data->text)
-            ft_strcat(res, data->text);
-		if (data->buffer)
-            ft_strcat(res, data->buffer);
-		data = data->next;
-	}
-    if (res)
-        write(1, res, ft_strlen(res));
-    return (ft_strlen(res) + 1);
+    return (total + 1);
 }
