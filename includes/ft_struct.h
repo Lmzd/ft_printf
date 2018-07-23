@@ -6,12 +6,14 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 23:20:01 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/23 23:13:31 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRUCT_H
 # define FT_STRUCT_H
+
+# include <wchar.h>
 
 typedef struct	s_flags
 {
@@ -43,7 +45,8 @@ typedef struct		s_data
 	char			type;			    /* le type du content */
 	int				precision;		    /* la precision exigée en int */
     int             neg;                /* int value is negative */
-    int             null;               /* int value equal 0 */
+    int             null;
+    wchar_t         value;             /* int value equal 0 */
 	char			*buffer;		    /* la valeur final retourné */
 	int				buffer_len;		    /* la longeur du buffer a afficher */
     t_data	        *next;		        /* la prochaine structure */
