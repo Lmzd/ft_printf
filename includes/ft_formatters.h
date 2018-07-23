@@ -7,6 +7,7 @@
 
 void	ft_format_int(t_data *data, va_list ap);
 void	ft_format_hex(t_data *elem, va_list ap);
+void	ft_format_char(t_data *elem, va_list ap);
 
 
 #endif

@@ -8,6 +8,8 @@
 # define TYPE_INT_3 'i'
 # define TYPE_HEX_1	'x'
 # define TYPE_HEX_2	'X'
+# define TYPE_CHAR_1 'c'
+# define TYPE_CHAR_2 'C'
 
 # define HEX_PREFIX  "0x"
 
@@ -25,6 +27,8 @@ t_fmt_type	g_types[] =
 	{TYPE_INT_3,		&ft_format_int},
 	{TYPE_HEX_1,		&ft_format_hex},
 	{TYPE_HEX_2,		&ft_format_hex},
+	{TYPE_CHAR_1,		&ft_format_char},
+	{TYPE_CHAR_2,		&ft_format_char},
 	{0, 0}
 };
 
