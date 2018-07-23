@@ -18,17 +18,18 @@ SRCS	:=		main.c												\
 				ft_printf.c											\
 				format/ft_format.c									\
 				format/ft_format_router.c							\
-				format/ft_format_width_handler.c					\
-				format/ft_format_plus_flag_handler.c				\
-				format/ft_format_moins_flag_handler.c				\
-				format/ft_format_space_flag_handler.c				\
-				format/ft_format_moins_flag_space_or_plus_handler.c	\
-				format/ft_format_precision_handler.c				\
-				format/ft_format_precison_width_handler.c			\
-				format/ft_format_precision_moins_flag_handler.c		\
-				format/ft_format_null_value.c						\
+				format/utils/decimal/ft_format_width_handler.c					\
+				format/utils/decimal/ft_format_plus_flag_handler.c				\
+				format/utils/decimal/ft_format_moins_flag_handler.c				\
+				format/utils/decimal/ft_format_space_flag_handler.c				\
+				format/utils/decimal/ft_format_moins_flag_space_or_plus_handler.c	\
+				format/utils/decimal/ft_format_precision_handler.c				\
+				format/utils/decimal/ft_format_precison_width_handler.c			\
+				format/utils/decimal/ft_format_precision_moins_flag_handler.c		\
+				format/utils/decimal/ft_format_null_value.c						\
 				format/formatters/ft_format_int.c					\
 				format/formatters/ft_format_hex.c					\
+				format/formatters/ft_format_char.c					\
 				parser/ft_parser.c									\
 				parser/utils/ft_parser_find_regex.c					\
 				parser/utils/ft_parser_options_checker.c			\
