@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 13:33:57 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/23 19:51:07 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/23 23:11:12 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ void    ft_print_null_bite(t_data *elem, int len)
     } 
         write(1, "\0", 1);
         write(1, elem->buffer, len);
+}
+
+void    ft_print_unicode(t_data *elem)
+{
+    if (!elem->flags.dash)
+    {
+        ft_putwchar(elem->value);
+        write(1, elem->buffer, ft_strlen(elem->buffer));
+        return ;
+    } 
+        write(1, elem->buffer, ft_strlen(elem->buffer));
+        ft_putwchar(elem->value);
 }
 
 int 	ft_printer (t_data *elem)
@@ -48,6 +60,11 @@ int 	ft_printer (t_data *elem)
             len = ft_strlen(elem->buffer);
             total += len + 1;
             ft_print_null_bite(elem, len);
+        }
+        if (elem->value)
+        {
+            total += MB_CUR_MAX;
+            ft_print_unicode(elem);
         }
 		else if (elem->buffer)
         {

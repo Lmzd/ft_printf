@@ -6,12 +6,13 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 20:38:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/23 20:06:00 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/23 23:22:58 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_printf(const char *format, ...);
 #include <stdio.h>
+#include <locale.h>
 #include "../includes/ft_printf.h"
 
 void	check(char *s, intmax_t nbr)
@@ -27,6 +28,14 @@ void	check(char *s, intmax_t nbr)
 
 int 	main(int ac, char **av)
 {
+    setlocale(LC_ALL, "");
+    ft_printf("%C\n", L'é');
+    // fflush(stdout);
+    printf("%3C\n", L'é');
+
+    ft_printf("%C\n", L'é');
+    // fflush(stdout);
+    printf("%3C\n", L'é');
 
     // ft_printf("%d\n", ft_printf("1caractere 1 %c caractere 2 %c\n", 'a', 'c'));
     // fflush(stdout);
@@ -107,7 +116,6 @@ int 	main(int ac, char **av)
 //   printf("%lu\n", sizeof(intmax_t));
 //   printf("%lu\n", sizeof(size_t));
 
-    write(1, "\0", 1);
     printf("==== TEST HEX ====\n");
         // check("%x", 512);
         // check("%x", 18);
