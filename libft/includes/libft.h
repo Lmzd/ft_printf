@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 20:40:48 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/07/23 23:09:48 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,8 @@ int					ft_isprint(int c);
 int					ft_tolower(int c);
 
 int					ft_toupper(int c);
+
+void	            ft_putwchar(wchar_t wc);
 
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 
