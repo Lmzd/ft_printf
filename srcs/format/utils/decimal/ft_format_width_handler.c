@@ -1,68 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format_width_handler.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/02 08:33:29 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/08/05 07:09:38 by lmazeaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../../../includes/ft_printf.h"
 
-void    ft_format_no_width_handler(t_data *elem, int width, int len)
+void	ft_format_no_width_handler(t_data *elem)
 {
-    char	*str;
+	char	*buf;
 
-    if (elem->neg)
-    {
-            str = ft_strnew(len + 2);
-            str[0] = '-';
-            ft_strcat(str, elem->buffer);
-            elem->buffer = ft_strdup(str);
-            free(str);
-    }
+	if (elem->neg)
+	{
+		buf = elem->buffer;
+		elem->buffer = ft_strjoin("-", buf);
+		free(buf);
+	}
 }
 
-void    ft_format_width_handler_helper(t_data *elem, int width, int len, char extension)
+void	ft_format_width_neg_helper(t_data *elem, char *str)
 {
-    char	*str;
-    int     index;
+	int		index;
+	char	*buf;
 
-    str = ft_strnew(width + elem->neg + 1);
-	while(len--)
+	if (elem->flags.zero)
+	{
+		str[0] = '-';
+		free(elem->buffer);
+		elem->buffer = str;
+	}
+	else
+	{
+		index = 0;
+		while (str[index] < '0' || str[index] > '9')
+			index++;
+		free(elem->buffer);
+		buf = ft_strreplace(str, '-', --index);
+		elem->buffer = buf;
+		return ;
+	}
+}
+
+void	ft_format_width_helper(t_data *elem,
+	int width, int len, char extension)
+{
+	char	*str;
+
+	str = ft_strnew(width + elem->neg + 1);
+	while (len--)
 		str[--width] = elem->buffer[len];
-	while(width--)
+	while (width--)
 		str[width] = extension;
-    if (elem->neg)
-    {
-        if (elem->flags.zero)
-            str[0] = '-';
-        else {
-            index = 0;
-            while (str[index] < '0' || str[index] > '9')
-                index++;
-            elem->buffer = ft_strreplace(str, '-', --index);
-            return ;
-        }
-    }
-    if (elem->null && (elem->type == 'c' || elem->type == 'C'))
-        str[ft_strlen(str) - 1] = 0;
+	if (elem->neg)
+	{
+		ft_format_width_neg_helper(elem, str);
+		return ;
+	}
+	else if (elem->null && (elem->type == 'c' || elem->type == 'C'))
+		str[ft_strlen(str) - 1] = 0;
+	free(elem->buffer);
 	elem->buffer = str;
-	free(str);
 }
 
 void	ft_format_width_handler(t_data *elem)
 {
 	int		len;
-	int 	width;
+	int		width;
 	char	extension;
 
 	len = ft_strlen(elem->buffer);
 	width = elem->width;
-    if (width <= len)
-    {
-        ft_format_no_width_handler(elem, width, len);
-        return ;
-    }
+	if (width <= len)
+	{
+		ft_format_no_width_handler(elem);
+		return ;
+	}
 	extension = ' ';
 	if (width > len)
-    {
+	{
 		if (elem->flags.zero)
 			extension = '0';
-    }
-    else
+	}
+	else
 		return ;
-	ft_format_width_handler_helper(elem, width, len, extension);
+	ft_format_width_helper(elem, width, len, extension);
 }

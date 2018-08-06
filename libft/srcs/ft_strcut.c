@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 22:48:41 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/18 16:27:25 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/06 04:50:36 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ char	*ft_strcut(char **src, int c)
 {
 	int		len;
 	int		i;
+	int		eol;
 	char	*cut;
-    int     eol;
-	
+
 	i = 0;
 	len = 0;
-    eol = 0;
-    (void)c;
+	eol = 0;
+	(void)c;
 	while ((*src)[i] != '\0' && (*src)[i++] != c)
 		len++;
-	if (!(cut = (char *)malloc(sizeof(char) * len + 1)))
-		return (0);
+	cut = ft_strnew(len);
 	i = 0;
 	while (i < len && **src != '\0')
 	{
@@ -34,6 +33,7 @@ char	*ft_strcut(char **src, int c)
 		(*src)++;
 		i++;
 	}
-	cut[len] = '\0';
+	if (**src != '\0')
+		(*src)++;
 	return (cut);
 }

@@ -6,73 +6,48 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 13:33:57 by pblouin           #+#    #+#             */
-/*   Updated: 2018/07/23 23:11:12 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/06 08:02:11 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void    ft_print_null_bite(t_data *elem, int len)
+void	ft_printer_helper(t_data *elem)
 {
-    if (!elem->flags.dash)
-    {
-        write(1, elem->buffer, len);
-        write(1, "\0", 1);
-        return ;
-    } 
-        write(1, "\0", 1);
-        write(1, elem->buffer, len);
+	if (elem->value || (elem->type == 'c' && elem->modifier.l)
+		|| elem->type == 'C')
+		ft_print_unicode(elem);
+	else if (elem->type == 'S' && elem->flags.dash
+		&& (elem->width > (int)ft_strwlen(elem->wbuffer)))
+	{
+		ft_print_wchar(elem);
+		write(1, elem->buffer, ft_strlen(elem->buffer));
+	}
+	else if (elem->buffer)
+		write(1, elem->buffer, ft_strlen(elem->buffer));
+	else if (elem->wbuffer)
+		ft_print_wchar(elem);
 }
 
-void    ft_print_unicode(t_data *elem)
+void	ft_printer(t_data *elem)
 {
-    if (!elem->flags.dash)
-    {
-        ft_putwchar(elem->value);
-        write(1, elem->buffer, ft_strlen(elem->buffer));
-        return ;
-    } 
-        write(1, elem->buffer, ft_strlen(elem->buffer));
-        ft_putwchar(elem->value);
-}
-
-int 	ft_printer (t_data *elem)
-{
-    int     len;
-    int     total;
-    int     null_bite;
+	t_data	*begin;
 
 	if (!elem)
-		exit (0);
-    len = 0;
-    total = 0;
+		return ;
+	begin = elem;
 	while (elem)
 	{
-        if (elem->text)
-        {
-            len = ft_strlen(elem->text);
-            total += len;
-            write(1, elem->text, len);
-        }
-        if (elem->null
-            && (elem->type == 'c' || elem->type == 'C'))
-        {
-            len = ft_strlen(elem->buffer);
-            total += len + 1;
-            ft_print_null_bite(elem, len);
-        }
-        if (elem->value)
-        {
-            total += MB_CUR_MAX;
-            ft_print_unicode(elem);
-        }
-		else if (elem->buffer)
-        {
-            len = ft_strlen(elem->buffer);
-            total += len;
-            write(1, elem->buffer, len);
-        }
+		if (elem->text)
+			write(1, elem->text, ft_strlen(elem->text));
+		if (elem->null && (elem->type == 'c' || elem->type == 'C'))
+			ft_print_null_bite(elem, ft_strlen(elem->buffer));
+		else if (elem->value || (elem->type == 'c' && elem->modifier.l)
+		|| elem->type == 'C')
+			ft_print_unicode(elem);
+		else
+			ft_printer_helper(elem);
 		elem = elem->next;
 	}
-    return (total + 1);
+	elem = begin;
 }

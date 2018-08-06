@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 12:32:26 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 13:18:14 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/02 08:01:27 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strncut(char **src, size_t n)
 {
-	size_t		i;
+	size_t	i;
 	char	*cut;
-	
+
 	i = 0;
 	if (!(cut = (char *)malloc(sizeof(char) * n + 1)))
 		return (0);

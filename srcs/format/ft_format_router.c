@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format_router.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/02 07:45:45 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/08/02 07:45:50 by lmazeaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 ** @name:  ft_format_route()
 ** @brief:
@@ -9,15 +21,15 @@
 #include "../../includes/ft_printf.h"
 #include "../../includes/ft_format.h"
 
-void    ft_format_router(t_data *data, va_list ap)
+void	ft_format_router(t_data *data, va_list ap)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (g_types[i].type)
-    {
-        if (data->type == g_types[i].type)
-            g_types[i].f(data, ap);
-        i++;
-    }
+	i = 0;
+	while (g_types[i].type)
+	{
+		if (data->type == g_types[i].type)
+			g_types[i].f(data, ap);
+		i++;
+	}
 }

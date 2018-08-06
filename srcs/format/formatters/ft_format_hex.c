@@ -1,61 +1,98 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format_hex.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/02 08:11:27 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/08/06 08:01:01 by lmazeaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../includes/ft_printf.h"
 
-void    ft_format_hex_modifier(t_data *elem, va_list ap)
+void			ft_format_point_oct_arg(t_data *elem, va_list ap)
 {
-    intmax_t value;
-    t_modifier modifier;
+	int			base;
+	uintmax_t	value;
 
-    modifier = elem->modifier;
-    if (modifier.hh)
-    {
-        modifier.h = 0;
-        value = (char)va_arg(ap, int);
-    } else if (modifier.h)
-        value = (short)va_arg(ap, int);
-    else if (modifier.l)
-        value = va_arg(ap, long int);
-    else if (modifier.ll)
-        value = va_arg(ap, long long int);
-    else if (modifier.j)
-        value = va_arg(ap, intmax_t);
-    else if (modifier.z)
-        value = va_arg(ap, size_t);
-    else
-        value = va_arg(ap, int);
-    elem->neg = (value >= 0) ? 0 : 1;
-    elem->buffer = ft_itoa_base_intmax(ft_abs_intmax(value), 16);
-    elem->buffer_len = ft_strlen(elem->buffer);
+	value = va_arg(ap, unsigned long int);
+	base = (elem->type == 'p') ? 16 : 8;
+	elem->neg = 0;
+	elem->null = (!value) ? 1 : 0;
+	elem->buffer = ft_itoa_base_uintmax(value, base);
 }
 
-// static void     ft_format_case_modifier(t_data *data)
-// {
-//     if (data->type == 'X')
-//         data->buffer = ft_toupper(data->buffer);
-// }
-
-// static void     ft_format_hex_prefix(t_data *data)
-// {
-//     if (data->flags.hashtag)
-//         data->buffer = ft_strcat(HEX_PREFIX, data->buffer);
-// }
-
-void	ft_format_hex(t_data *elem, va_list ap)
+void			ft_format_hex_modifier(t_data *elem, va_list ap)
 {
-    char *value;
+	int			base;
+	uintmax_t	value;
+	t_modifier	modifier;
 
-    ft_format_hex_modifier(elem, ap);
-    // ft_format_hex_prefix(elem);
-    // ft_format_case_modifier(elem);
-	
-	// /* comportement a tester et adapter */
-    // if (!elem->flags.dash \
-    //    || (elem->flags.dash && (elem->width < elem->buffer_len)))
-    // {
-    //     ft_format_width_handler(elem);
-    //     ft_format_plus_flag_handler(elem);
-    //     ft_format_space_flag_handler(elem);
-    // } else {
-    //     ft_format_moins_flag_handler(elem);
-    //     ft_format_moins_flag_space_or_plus_handler(elem);
-    // }
+	modifier = elem->modifier;
+	base = (elem->type == 'o') ? 8 : 16;
+	elem->modifier.l = (modifier.ll) ? 0 : modifier.l;
+	elem->modifier.h = (modifier.hh) ? 0 : modifier.h;
+	if (modifier.hh)
+		value = (unsigned char)va_arg(ap, unsigned int);
+	else if (modifier.h)
+		value = (unsigned short)va_arg(ap, unsigned int);
+	else if (modifier.ll)
+		value = va_arg(ap, unsigned long long int);
+	else if (modifier.l)
+		value = va_arg(ap, unsigned long int);
+	else if (modifier.j)
+		value = va_arg(ap, uintmax_t);
+	else if (modifier.z)
+		value = va_arg(ap, size_t);
+	else
+		value = va_arg(ap, unsigned int);
+	elem->neg = 0;
+	elem->null = (!value) ? 1 : 0;
+	elem->buffer = ft_itoa_base_uintmax(value, base);
+}
+
+static void		ft_format_case_modifier(t_data *data)
+{
+	if (data->type == 'X')
+		data->buffer = ft_strtoupper(data->buffer);
+}
+
+void			ft_format_hex_minus(t_data *elem)
+{
+	if (elem->precision > -1)
+	{
+		ft_format_hex_precision_handler(elem);
+		ft_format_hex_precision_moins_flag_handler(elem);
+	}
+	else
+		ft_format_hex_moins_flag_handler(elem);
+}
+
+void			ft_format_hex(t_data *elem, va_list ap)
+{
+	int		dash;
+	int		is_octal;
+
+	ft_init_values(elem);
+	dash = elem->flags.dash;
+	is_octal = (elem->type == 'o' || elem->type == 'O') ? 1 : 0;
+	(elem->type == 'p' || elem->type == 'O')
+		? ft_format_point_oct_arg(elem, ap) : ft_format_hex_modifier(elem, ap);
+	elem->flags.hash = (elem->null) ? 0 : elem->flags.hash;
+	if (!dash || (dash && (elem->width < (int)ft_strlen(elem->buffer))))
+	{
+		if (elem->precision > -1)
+		{
+			ft_format_hex_precision_handler(elem);
+			ft_format_hex_precision_width_handler(elem);
+		}
+		else
+			ft_format_hex_width_handler(elem);
+	}
+	else
+		ft_format_hex_minus(elem);
+	ft_format_hex_null_value(elem);
+	ft_format_case_modifier(elem);
 }

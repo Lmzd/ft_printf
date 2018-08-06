@@ -6,50 +6,47 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/23 23:13:31 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/06 06:43:34 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRUCT_H
 # define FT_STRUCT_H
 
-# include <wchar.h>
-
-typedef struct	s_flags
+typedef struct		s_flags
 {
-	int			zero;
-	int			hashtag;
-	int			plus;
-	int			dash;
-	int			spaces;
-}				t_flags;
+	int				zero;
+	int				hash;
+	int				plus;
+	int				dash;
+	int				spaces;
+}					t_flags;
 
-typedef struct	s_modifier
+typedef struct		s_modifier
 {
-	int			h;
-	int			hh;
-	int			l;
-	int			ll;
-	int			j;
-	int			z;
-}				t_modifier;
-
-typedef struct      s_data  t_data;
+	int				h;
+	int				hh;
+	int				l;
+	int				ll;
+	int				j;
+	int				z;
+}					t_modifier;
 typedef struct		s_data
 {
-    char 			*text;				/* le texte avant le % recontré*/
-	t_flags			flags;  		    /* le flag */
-    t_modifier      modifier;
-	char			*expression; 	    /* l'expression entiere sans le % sign au debut */
-	int				width;			    /* la taille minimale de l'output */
-	char			type;			    /* le type du content */
-	int				precision;		    /* la precision exigée en int */
-    int             neg;                /* int value is negative */
-    int             null;
-    wchar_t         value;             /* int value equal 0 */
-	char			*buffer;		    /* la valeur final retourné */
-	int				buffer_len;		    /* la longeur du buffer a afficher */
-    t_data	        *next;		        /* la prochaine structure */
-}		            t_data;
+	char			*text;
+	char			*expression;
+	int				width;
+	int				wmalloc;
+	int				precision;
+	int				neg;
+	int				null;
+	char			type;
+	wchar_t			value;
+	char			*buffer;
+	wchar_t			*wbuffer;
+	t_flags			flags;
+	t_modifier		modifier;
+	struct s_data	*next;
+}					t_data;
 
 #endif

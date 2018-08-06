@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 21:35:34 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/05/10 21:56:39 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/06 06:44:14 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_cutstr(char *src, int c)
 	int		len;
 	int		i;
 	char	*cut;
-	
+
 	i = 0;
 	len = 0;
 	while (src[i++] != c)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base_intmax.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pblouin <pblouin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 00:19:42 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 16:53:59 by pblouin          ###   ########.fr       */
+/*   Updated: 2018/08/05 02:19:56 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,13 @@ char			*ft_itoa_base_intmax(intmax_t n, int base)
 		n *= -1;
 	}
 	nb_len = ft_nb_len_base(n, base);
-	if (!(res = ft_strnew(nb_len)))
-		return (NULL);
+	res = ft_strnew(nb_len);
 	nb_len += is_neg;
 	while (nb_len > is_neg)
 	{
 		res[nb_len-- - 1] = str_charset[(n % base)];
 		n /= base;
 	}
-	if (is_neg)
-		res[0] = '-';
+	res[0] = (is_neg) ? '-' : res[0];
 	return (res);
 }

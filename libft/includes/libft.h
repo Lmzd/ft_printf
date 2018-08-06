@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/23 23:09:48 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/06 06:26:58 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,7 +212,7 @@ int					ft_tolower(int c);
 
 int					ft_toupper(int c);
 
-void	            ft_putwchar(wchar_t wc);
+void				ft_putwchar(wchar_t wc);
 
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 
@@ -288,21 +288,30 @@ int					ft_strhas(char *str, int c);
 
 char				*ft_cutstr(char *src, int c);
 
-int                 ft_strhas_digit(const char *str);
+int					ft_strhas_digit(const char *str);
 
-int                 ft_strhas_str(const char *str, const char *find);
+int					ft_strhas_str(const char *str, const char *find);
 
-int		            ft_strhas_char(char *str, int c);
+int					ft_strhas_char(char *str, int c);
 
-char                *ft_itoa_base_intmax(intmax_t n, int base);
+char				*ft_strtoupper(char *str);
 
-int		            ft_strhaszero(char *str, int c);
+char				*ft_itoa_base_intmax(intmax_t n, int base);
 
-char                *ft_itoa_intmax(intmax_t nb);
+char				*ft_itoa_base_uintmax(uintmax_t n, int base);
 
-char	            *ft_strreplace(char *str, int letter, size_t index);
+int					ft_strhaszero(char *str, int c);
 
-intmax_t            ft_abs_intmax(intmax_t value);
+char				*ft_itoa_intmax(intmax_t nb);
 
+char				*ft_strreplace(char *str, int letter, size_t index);
+
+intmax_t			ft_abs_intmax(intmax_t value);
+
+size_t				ft_strwlen(wchar_t *str);
+
+size_t				ft_wcharlen(wchar_t c);
+
+char				*ft_fillit(char c, size_t n);
 
 #endif

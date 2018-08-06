@@ -6,20 +6,20 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 10:37:30 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 10:39:34 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/02 08:03:17 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_strhas_digit(const char *str)
+int		ft_strhas_digit(const char *str)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] > 48 && str[i] <= 57)
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] > 48 && str[i] <= 57)
+			return (1);
+		i++;
+	}
+	return (0);
 }

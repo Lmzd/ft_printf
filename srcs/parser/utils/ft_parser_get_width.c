@@ -6,34 +6,20 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:21:43 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/22 16:03:28 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/05 04:49:42 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/ft_utils_parser.h"
 
-int		ft_parser_get_width(char *reg)
+int		ft_parser_get_width(char *str)
 {
 	int		i;
-	int 	res;
-    int     len;
-    char    *str;
+	int		res;
 
-    i = 0;
-    len = 0;
-    while (reg[i] != '.' && reg[i++] != '\0')
-        len++;
-    i = 0;
-    if (len <= 1)
-        return (-1);
-    str = ft_strnew(len);
-    while (len--)
-    {
-        str[i] = reg[i];
-        i++;
-    }
-    while (*str <= 47 || *str >= 58)
-        str++;
-    res = ft_atoi(str);
+	i = 0;
+	while ((str[i] <= 47 || str[i] >= 58) && str[i])
+		i++;
+	res = ft_atoi(str + i);
 	return ((!res) ? -1 : res);
 }

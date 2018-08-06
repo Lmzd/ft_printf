@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 17:46:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/19 17:11:05 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/02 07:58:32 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 **      new: new list element
 **  return: nothing (we use a pointer of pointer to edit the lst directly)
 */
+
 void	ft_list_append(t_data **lst, t_data *new)
 {
 	t_data	*list_tmp;

@@ -6,25 +6,30 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 23:13:40 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/23 15:21:31 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/05 06:00:33 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../includes/ft_printf.h"
 
-void    ft_format_null_value(t_data *elem)
+void	ft_format_null_value(t_data *elem)
 {
-    char *buf;
-    int len;
+	int		len;
+	char	*buf;
 
-    buf = ft_strdup(elem->buffer);
-    len = ft_strlen(buf);
-    if (elem->null)
-    {
-        if (!elem->precision && elem->width >= 1)
-            buf = ft_strreplace(buf, ' ', len - 1);
-        if (!elem->precision && elem->width == -1)
-            buf = "";
-    }
-    elem->buffer = ft_strdup(buf);
+	if (elem->null)
+	{
+		len = ft_strlen(elem->buffer);
+		if (!elem->precision && elem->width >= 1)
+		{
+			buf = ft_strreplace(elem->buffer, ' ', len - 1);
+			free(elem->buffer);
+			elem->buffer = buf;
+		}
+		if (!elem->precision && elem->width == -1)
+		{
+			free(elem->buffer);
+			elem->buffer = "";
+		}
+	}
 }

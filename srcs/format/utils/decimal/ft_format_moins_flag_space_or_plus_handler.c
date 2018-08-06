@@ -6,36 +6,33 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 20:29:56 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/07/23 20:10:49 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/06 00:01:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../includes/ft_printf.h"
 
-void    ft_format_moins_flag_space_or_plus_handler(t_data *elem)
+void	ft_format_moins_flag_space_or_plus_handler(t_data *elem)
 {
-    char extension;
-    char *buf;
-    char *str;
-    int len;
-    int width;
-    
-    extension = (elem->flags.spaces) ? ' '  : '+';
-    width = elem->width;
-    if (elem->type == 'c' || elem->type == 'C')
-        return;
-    if (!elem->flags.spaces && !elem->flags.plus)
-        return ;
-    buf = ft_strdup(elem->buffer);
-    len = ft_strlen(buf);
-    str = ft_strnew(width);
-    if (!elem->neg)
-    {
-        str[0] = extension;
-        ft_strcat(str, buf);
-        str[width] = '\0';
-        elem->buffer = ft_strdup(str);
-    }
-    free(str);
-    free(buf);
+	char	*extension;
+	char	*buf;
+	int		len;
+	int		width;
+
+	width = elem->width;
+	len = ft_strlen(elem->buffer);
+	if (elem->type == 'c' || elem->type == 'C'
+		|| elem->type == 'u' || elem->type == 'U')
+		return ;
+	if (!elem->flags.spaces && !elem->flags.plus)
+		return ;
+	extension = (elem->flags.spaces) ? ft_strdup(" ") : ft_strdup("+");
+	if (!elem->neg)
+	{
+		buf = elem->buffer;
+		elem->buffer = ft_strjoin(extension, buf);
+		elem->buffer[len] = '\0';
+		free(buf);
+	}
+	free(extension);
 }
