@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 20:38:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 03:06:31 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 03:17:53 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void checkWchar(char *s, wchar_t c)
 int main(int ac, char **av)
 {
 	// ft_printf("on a %d%% de reussite\n", 72);
-	ft_printf("\non a %n %% %%% de reussite", 72, 69);
+	// ft_printf("\non a %n %% %%% de reussite", 72, 69);
 	// fflush(stdout);
-	printf("\non a %n %% %%% de reussite", 72, 69);
+	// printf("\non a %n %% %%% de reussite", 72, 69);
 	// setlocale(LC_ALL, "");
 	// ft_printf("%C\n", L'é');
 	// // fflush(stdout);
