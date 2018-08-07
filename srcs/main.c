@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 20:38:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 09:35:44 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 03:06:31 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,41 @@ int ft_printf(const char *format, ...);
 void check(char *s, intmax_t nbr)
 {
 	printf("%s,%jd,[", s, nbr);
-	printf(s, nbr);
-	printf("],[");
+	printf("],%d,[", printf(s, nbr));
 	fflush(stdout);
-	ft_printf(s, nbr);
-	printf("]\n");
+	printf("],%d\n", ft_printf(s, nbr));
 }
 
 void checkStr(char *s, char *str)
 {
 	printf("%s,%s,[", s, str);
-	printf(s, str);
-	printf("],[");
+	printf("],%d,[", printf(s, str));
 	fflush(stdout);
-	ft_printf(s, str);
-	printf("]\n");
+	printf("],%d\n", ft_printf(s, str));
 }
 
 void checkWstr(char *s, wchar_t *str)
 {
 	printf("%s,%S,[", s, str);
-	printf(s, str);
-	printf("],[");
+	printf("],%d,[", printf(s, str));
 	fflush(stdout);
-	ft_printf(s, str);
-	printf("]\n");
+	printf("],%d\n", ft_printf(s, str));
+}
+
+void checkWchar(char *s, wchar_t c)
+{
+	printf("%s,%C,[", s, c);
+	printf("],%d,[", printf(s, c));
+	fflush(stdout);
+	printf("],%d\n", ft_printf(s, c));
 }
 
 int main(int ac, char **av)
 {
 	// ft_printf("on a %d%% de reussite\n", 72);
-	// ft_printf("\non a %n %% %%% de reussite", 72);
+	ft_printf("\non a %n %% %%% de reussite", 72, 69);
 	// fflush(stdout);
-	// printf("\non a %n %% %%% de reussite", 72);
+	printf("\non a %n %% %%% de reussite", 72, 69);
 	// setlocale(LC_ALL, "");
 	// ft_printf("%C\n", L'é');
 	// // fflush(stdout);
@@ -141,7 +143,7 @@ int main(int ac, char **av)
 	//   printf("%lu\n", sizeof(size_t));
 
 	// printf("==== TEST INT ====\n");
-	printf("expression,number,printf_result,ft_printf_result\n");
+	printf("expression,value,printf_result,return printf,ft_printf,return ft_printf\n");
 	//printf("==== TEST INT ====\n");
 	check("% 03d", 1);
 	check("% 03hd", 1);
@@ -4542,7 +4544,7 @@ int main(int ac, char **av)
 	checkWstr("{%30S}", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 	checkWstr("%.4S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 	checkWstr("{%05.S}", L"42 c est cool");
-	checkWstr("%15.4S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	checkWstr("\x1b[32m%15.4S\x1b[0m", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 
 	checkStr("%s", "abc");
 	checkStr("@moulitest: %s", NULL);
@@ -4567,7 +4569,7 @@ int main(int ac, char **av)
 	checkStr("%-10s is a string", "");
 	checkStr("%-.2s is a string", "");
 	checkStr("%-5.2s is a string", "");
-	checkStr("%.10s is a string 🙉", "fer𝘡fڈlfer");
+	checkStr("\x1b[31m %.10s is a string \x1b[0m 🙉", "fer𝘡fڈlfer");
 	check("m%m", 4);
 	check("aa%%bb", 4);
 	check("%%%%%%%%%%%%", 4);
@@ -4578,10 +4580,13 @@ int main(int ac, char **av)
 	check("{% %}", 3);
 	check("%%", 42);
 	check("%.7%", 42);
-	
 	check("%020.10%", 42);
 	check("%+20.10%", 42);
 	check("% 20.10%", 42);
 	check("%-20.10%", 42);
+
+	checkWchar("%C", NULL);                 
+	checkWchar("%C", L'❤');                 
+	checkWchar("%C", L'Å');   
 exit(0);
 }

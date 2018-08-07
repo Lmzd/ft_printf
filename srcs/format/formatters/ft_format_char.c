@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 14:40:00 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 08:01:15 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 00:36:03 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	ft_format_char_modifier(t_data *elem, va_list ap)
 	char	*value;
 
 	value = ft_strnew(1);
-	if (elem->modifier.ll)
-		elem->modifier.l = 0;
+	elem->modifier.l = (elem->modifier.ll) ? 0 : elem->modifier.l;
 	if (elem->modifier.l || elem->type == 'C')
 	{
 		elem->value = va_arg(ap, wchar_t);

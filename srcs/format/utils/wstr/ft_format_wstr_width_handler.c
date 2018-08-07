@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 17:12:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 07:27:03 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 01:35:38 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_format_wstr_width_handler(t_data *elem)
 	range = width - len;
 	if (!(str = (wchar_t*)malloc(sizeof(wchar_t) * width + 1)))
 		return ;
+	ft_wbzero(str, width + 1);
 	while (len--)
 		str[--width] = elem->wbuffer[len];
 	while (width--)

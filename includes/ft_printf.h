@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 07:48:50 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 01:48:09 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	ft_format_wstr_precision_handler(t_data *elem);
 void	ft_format_wstr_width_handler(t_data *elem);
 void	ft_format_wstr_moins_flag_handler(t_data *elem);
 
-
 void	ft_printer(t_data *elem);
 void	ft_print_unicode(t_data *elem);
 void	ft_print_null_bite(t_data *elem, int len);
 void	ft_print_wchar(t_data *elem);
 
+int		ft_counter(t_data *begin);
 void	ft_free_structure(t_data **begin_list);
 
 #endif

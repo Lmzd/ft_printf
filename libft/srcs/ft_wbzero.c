@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unicode.c                                 :+:      :+:    :+:   */
+/*   ft_wbzero.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/29 15:19:41 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 00:29:47 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/08/07 01:36:03 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/08/07 01:37:01 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/ft_printf.h"
+#include "libft.h"
 
-void	ft_print_unicode(t_data *elem)
+void	ft_wbzero(wchar_t *str, size_t nb)
 {
-	int	len;
+	size_t	i;
 
-	len = ft_strlen(elem->buffer);
-	if (!elem->flags.dash)
-	{
-		write(1, elem->buffer, len);
-		ft_putwchar(elem->value);
-		return ;
-	}
-	ft_putwchar(elem->value);
-	write(1, elem->buffer, len);
+	i = 0;
+	while (i < nb)
+		str[i++] = L'\0';
 }

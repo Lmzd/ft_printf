@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:11:27 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 08:01:01 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 02:47:22 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,18 @@ void			ft_format_hex_minus(t_data *elem)
 void			ft_format_hex(t_data *elem, va_list ap)
 {
 	int		dash;
+	int		hash;
 	int		is_octal;
 
 	ft_init_values(elem);
 	dash = elem->flags.dash;
+	hash = elem->flags.hash;
 	is_octal = (elem->type == 'o' || elem->type == 'O') ? 1 : 0;
 	(elem->type == 'p' || elem->type == 'O')
 		? ft_format_point_oct_arg(elem, ap) : ft_format_hex_modifier(elem, ap);
 	elem->flags.hash = (elem->null) ? 0 : elem->flags.hash;
+	elem->flags.hash = (!elem->precision && is_octal && hash
+		&& elem->width == -1) ? 1 : elem->flags.hash;
 	if (!dash || (dash && (elem->width < (int)ft_strlen(elem->buffer))))
 	{
 		if (elem->precision > -1)

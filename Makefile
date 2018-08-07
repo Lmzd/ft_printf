@@ -2,7 +2,7 @@
 # GNU PARAMETERS
 NAME	:=	ftprintf
 # CFLAGS	:=	-Werror -Wextra -Wall -g
-CFLAGS	:= -g
+CFLAGS	:= -g -w
 CC		:=	gcc
 
 # LIBRARIES
@@ -11,7 +11,8 @@ LIB			:=	$(LIB_PATH)/libft.a
 LIB_LINK	:=	-L $(LIB_PATH) -lft
 
 # INCLUDES
-INCS		:=	-I $(LIB_PATH) -I $(SRCS_DIR)
+INC_DIR     := 	includes/
+INCS		:=	-I $(LIB_PATH) -I $(INC_DIR)
 
 # SOURCES
 SRCS_DIR :=	srcs
@@ -60,6 +61,7 @@ SRCS	:=		ft_printf.c															\
 				parser/utils/ft_parser_get_zero_flag_width_precision.c		\
 				parser/utils/ft_parser_put_default.c				\
 				printer/ft_printer.c								\
+				counter/ft_counter.c								\
 				printer/utils/ft_print_null_bite.c					\
 				printer/utils/ft_print_unicode.c					\
 				printer/utils/ft_print_wchar.c						\
@@ -92,7 +94,7 @@ LOG_VIOLET		= \033[1;35m
 all : $(NAME)
 
 $(NAME) : $(LIB) $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^ $(LIB_LINK)
+	@$(CC) $(CFLAGS) -o $@ $^ $(LIB_LINK) $(INCS)
 	@echo "$(LOG_GREEN)$(NAME) CREATED SUCCESSFULLY$(LOG_NOCOLOR)"
 
 $(LIB)	:

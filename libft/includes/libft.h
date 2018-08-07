@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 06:26:58 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 01:36:36 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -313,5 +313,7 @@ size_t				ft_strwlen(wchar_t *str);
 size_t				ft_wcharlen(wchar_t c);
 
 char				*ft_fillit(char c, size_t n);
+
+void				ft_wbzero(wchar_t *str, size_t nb);
 
 #endif
