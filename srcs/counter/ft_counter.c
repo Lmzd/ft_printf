@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:44:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 21:50:05 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int		ft_counter_unicode(t_data *elem)
 	int nb;
 
 	nb = ft_strlen(elem->buffer);
-	elem->buffer[--nb] = '\0';
+	if (nb != 0)
+		elem->buffer[--nb] = '\0';
 	return (ft_strlen(elem->buffer) + ft_wcharlen(elem->value));
 }
 

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 20:38:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 09:00:26 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 21:44:22 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main(int ac, char **av)
 {
 	// printf("==== TEST INT ====\n");
 	printf("expression,value,printf_result,return printf,ft_printf,return ft_printf\n");
-	check("dfasdfsafasd %d", 1);
+	check("%00+10.4d", 0);
 	check("%-10.5d", 4242);
 	check("% 03hd", 1);
 	check("% 03hhd", 1);
@@ -4116,7 +4116,8 @@ int main(int ac, char **av)
 	check("%#jo", -455);
 	check("%#-+03jo", 84);
 	check("%#-+03jo", 1);
-	check("%#-+03jo", 0);
+	check("%#.4o", 012);
+	check("%0#10.0x", 0);
 
 // setlocale(LC_CTYPE, "");
 	checkWchar("%C", (wint_t)-2);   

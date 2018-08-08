@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 18:50:14 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 18:29:00 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	ft_format_hex_precision_helper(t_data *elem, char *prefix, char *str)
 		while (preci--)
 			str[preci] = '0';
 		free(elem->buffer);
-		elem->buffer = (elem->flags.hash || elem->type == 'p')
+		elem->buffer = (elem->type == 'p' ||
+			((elem->type == 'x' || elem->type == 'X') && elem->flags.hash))
 			? ft_strjoin(prefix, str) : ft_strdup(str);
 	}
 }

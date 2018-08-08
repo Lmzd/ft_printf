@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 03:37:52 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 18:33:12 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,9 @@ void	ft_format_percent(t_data *elem, va_list ap)
 	elem->buffer = ft_strdup("%");
 	elem->wmalloc = 1;
 	ft_format_str_flags(elem);
+	if (!elem->precision && elem->width == -1)
+	{
+		free(elem->buffer);
+		elem->buffer = ft_strdup("%");
+	}
 }

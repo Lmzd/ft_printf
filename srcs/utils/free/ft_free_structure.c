@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 13:30:13 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 20:00:23 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	ft_free_structure_buffer(t_data *elem)
 		free(elem->buffer);
 	else if (!elem->precision && !elem->flags.hash
 		&& (elem->type == 'o' || elem->type == 'O') && elem->width == -1)
+		free(elem->buffer);
+	else if (!elem->precision && elem->flags.hash && elem->type != 'p'
+		&& elem->width == -1)
 		free(elem->buffer);
 }
 

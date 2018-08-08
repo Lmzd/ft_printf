@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 00:34:27 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 13:00:54 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ int		ft_parser_get_zero_flag_width_precision(char *reg)
 		free(src);
 		return (-1);
 	}
-	while (*reg != '0' && *reg != '\0')
+	while ((*reg < 49 || *reg > 57) && *reg)
 		reg++;
-	reg++;
 	if (*reg == '\0')
 	{
 		free(src);

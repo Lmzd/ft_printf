@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 23:13:40 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 12:51:20 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,17 @@ void	ft_format_null_value(t_data *elem)
 			free(elem->buffer);
 			elem->buffer = buf;
 		}
-		if (!elem->precision && elem->width == -1)
+		if (!elem->precision && elem->width == -1 && elem->flags.spaces)
+		{
+			free(elem->buffer);
+			elem->buffer = ft_strdup(" ");
+		}
+		else if (!elem->precision && elem->width == -1 && elem->flags.plus)
+		{
+			free(elem->buffer);
+			elem->buffer = ft_strdup("+");
+		}
+		else if (!elem->precision && elem->width == -1)
 		{
 			free(elem->buffer);
 			elem->buffer = "";
