@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 11:25:15 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 09:23:45 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_data		*ft_list_create_data_elem(void)
 	curr->modifier.j = 0;
 	curr->modifier.z = 0;
 	curr->precision = -1;
+	curr->error = 0;
 	curr->width = -1;
 	curr->neg = 0;
 	curr->type = '\0';
