@@ -1,18 +1,11 @@
 # GNU PARAMETERS
-# GNU PARAMETERS
-NAME	:=	ftprintf
-# CFLAGS	:=	-Werror -Wextra -Wall -g
-CFLAGS	:= -g -w
+NAME	:=	libftprintf.a
+CFLAGS	:=	-Werror -Wextra -Wall -g -w
 CC		:=	gcc
 
-# LIBRARIES
-LIB_PATH	:=	libft
-LIB			:=	$(LIB_PATH)/libft.a
-LIB_LINK	:=	-L $(LIB_PATH) -lft
-
 # INCLUDES
-INC_DIR     := 	includes/
-INCS		:=	-I $(LIB_PATH) -I $(INC_DIR)
+INC_DIR     := 	includes
+INCS		:=  -I $(INC_DIR)
 
 # SOURCES
 SRCS_DIR :=	srcs
@@ -39,44 +32,82 @@ SRCS	:=		ft_printf.c															\
 				format/utils/str/ft_format_str_width_handler.c						\
 				format/utils/str/ft_format_str_precision_handler.c					\
 				format/utils/str/ft_format_str_moins_flag_handler.c					\
-				format/utils/wstr/ft_format_wstr_flags.c								\
+				format/utils/wstr/ft_format_wstr_flags.c							\
 				format/utils/wstr/ft_format_wstr_width_handler.c					\
 				format/utils/wstr/ft_format_wstr_precision_handler.c				\
 				format/utils/wstr/ft_format_wstr_moins_flag_handler.c				\
-				format/formatters/ft_format_int.c					\
-				format/formatters/ft_format_u_int.c					\
-				format/formatters/ft_format_hex.c					\
-				format/formatters/ft_format_char.c					\
-				format/formatters/ft_format_str.c					\
-				format/formatters/ft_format_percent.c				\
-				parser/ft_parser.c									\
-				parser/utils/ft_parser_find_regex.c					\
-				parser/utils/ft_parser_options_checker.c			\
-				parser/utils/ft_parser_get_precision.c				\
-				parser/utils/ft_parser_get_regex_len.c				\
-				parser/utils/ft_parser_get_width.c					\
-				parser/utils/ft_parser_get_width_precision.c		\
-				parser/utils/ft_parser_get_text_and_expression.c	\
-				parser/utils/ft_parser_get_zero_flag_width.c		\
-				parser/utils/ft_parser_get_zero_flag_width_precision.c		\
-				parser/utils/ft_parser_put_default.c				\
-				printer/ft_printer.c								\
-				counter/ft_counter.c								\
-				printer/utils/ft_print_null_bite.c					\
-				printer/utils/ft_print_unicode.c					\
-				printer/utils/ft_print_wchar.c						\
-				utils/list/ft_list_append.c							\
-				utils/list/ft_init_values.c							\
-				utils/list/ft_list_create_data_elem.c				\
-				utils/test/ft_test_print_list_elem.c				\
-				utils/test/ft_test_print_list.c						\
-				utils/free/ft_free_structure.c						\
-				main.c
-				
+				format/formatters/ft_format_int.c									\
+				format/formatters/ft_format_u_int.c									\
+				format/formatters/ft_format_hex.c									\
+				format/formatters/ft_format_char.c									\
+				format/formatters/ft_format_str.c									\
+				format/formatters/ft_format_percent.c								\
+				parser/ft_parser.c													\
+				parser/utils/ft_parser_find_regex.c									\
+				parser/utils/ft_parser_options_checker.c							\
+				parser/utils/ft_parser_get_precision.c								\
+				parser/utils/ft_parser_get_regex_len.c								\
+				parser/utils/ft_parser_get_width.c									\
+				parser/utils/ft_parser_get_width_precision.c						\
+				parser/utils/ft_parser_get_text_and_expression.c					\
+				parser/utils/ft_parser_get_zero_flag_width.c						\
+				parser/utils/ft_parser_get_zero_flag_width_precision.c				\
+				parser/utils/ft_parser_put_default.c								\
+				printer/ft_printer.c												\
+				counter/ft_counter.c												\
+				printer/utils/ft_print_null_bite.c									\
+				printer/utils/ft_print_unicode.c									\
+				printer/utils/ft_print_wchar.c										\
+				utils/list/ft_list_append.c											\
+				utils/list/ft_init_values.c											\
+				utils/list/ft_list_create_data_elem.c								\
+				utils/test/ft_test_print_list_elem.c								\
+				utils/test/ft_test_print_list.c										\
+				utils/free/ft_free_structure.c										\
+				utils/libft/ft_abs_intmax.c											\
+				utils/libft/ft_atoi.c												\
+				utils/libft/ft_bzero.c												\
+				utils/libft/ft_cutstr.c												\
+				utils/libft/ft_fillit.c												\
+				utils/libft/ft_isalpha.c											\
+				utils/libft/ft_islower.c											\
+				utils/libft/ft_isupper.c											\
+				utils/libft/ft_itoa_base_intmax.c									\
+				utils/libft/ft_itoa_base_uintmax.c									\
+				utils/libft/ft_memalloc.c											\
+				utils/libft/ft_memdel.c												\
+				utils/libft/ft_memset.c												\
+				utils/libft/ft_putchar.c											\
+				utils/libft/ft_putstr.c												\
+				utils/libft/ft_putwchar.c											\
+				utils/libft/ft_strcat.c												\
+				utils/libft/ft_strcut.c												\
+				utils/libft/ft_strdel.c												\
+				utils/libft/ft_strdup.c												\
+				utils/libft/ft_strhas_char.c										\
+				utils/libft/ft_strhas_digit.c										\
+				utils/libft/ft_strhas_str.c											\
+				utils/libft/ft_strhas_zero.c										\
+				utils/libft/ft_strjoin.c											\
+				utils/libft/ft_strlen.c												\
+				utils/libft/ft_strnew.c												\
+				utils/libft/ft_strncut.c											\
+				utils/libft/ft_strreplace.c											\
+				utils/libft/ft_strtoupper.c											\
+				utils/libft/ft_toupper.c											\
+				utils/libft/ft_wbzero.c												\
+				utils/libft/ft_strwlen.c											\
+				utils/libft/ft_wcharlen.c											\
 
 SRCS_FILES 	:= $(addprefix $(SRCS_DIR)/,$(SRCS))
+
 # OBJECTS
-OBJS		:=	$(SRCS_FILES:.c=.o)
+OBJ_DIR		:=	obj
+OBJS		:=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
+
+AR		:=	ar rc
+
+RL		:=	ranlib
 
 # TERMINAL COMMANDS
 RM			:= /bin/rm -rf
@@ -88,38 +119,55 @@ LOG_BOLD		= \033[1m
 LOG_RED			= \033[1;31m
 LOG_GREEN		= \033[32m
 LOG_VIOLET		= \033[1;35m
+LOG_CLIGNO		= \033[5m
 
-.PHONY: clean fclean re norme
+.PHONY: all clean fclean re norme create-folder
 
 all : $(NAME)
 
-$(NAME) : $(LIB) $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^ $(LIB_LINK) $(INCS)
-	@echo "$(LOG_GREEN)$(NAME) CREATED SUCCESSFULLY$(LOG_NOCOLOR)"
+$(NAME) : create-folder $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@$(RL) $(NAME) 
+	@echo "\033[5m$(LOG_GREEN)$(NAME) CREATED SUCCESSFULLY$(LOG_NOCOLOR)"
 
-$(LIB)	:
-	@echo "$(LOG_CLEAR)$(LOG_VIOLET)$(LOG_BOLD)BEGIN COMPILING ...$(LOG_NOCOLOR)"
-	@make -C $(LIB_PATH)
+create-folder :
+	@echo ""
+	@echo ""
+	@echo "$(LOG_VIOLET) $(LOG_CLIGNO)BEGIN COMPILING $(NAME)...$(LOG_NOCOLOR)"
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)/format
+	@mkdir -p $(OBJ_DIR)/format/formatters
+	@mkdir -p $(OBJ_DIR)/format/utils/decimal
+	@mkdir -p $(OBJ_DIR)/format/utils/hex
+	@mkdir -p $(OBJ_DIR)/format/utils/str
+	@mkdir -p $(OBJ_DIR)/format/utils/wstr
+	@mkdir -p $(OBJ_DIR)/parser/
+	@mkdir -p $(OBJ_DIR)/parser/utils
+	@mkdir -p $(OBJ_DIR)/counter
+	@mkdir -p $(OBJ_DIR)/printer
+	@mkdir -p $(OBJ_DIR)/printer/utils
+	@mkdir -p $(OBJ_DIR)/utils/free
+	@mkdir -p $(OBJ_DIR)/utils/list
+	@mkdir -p $(OBJ_DIR)/utils/test
+	@mkdir -p $(OBJ_DIR)/utils/libft
 
-%.o		: $(SRCS_DIR)/%.c
+$(OBJ_DIR)/%.o	: $(SRCS_DIR)/%.c
 	@echo "$(LOG_CLEAR)	👉  add $@	✅ $(LOG_NOCOLOR)"
-	@$(CC) $(CFLAGS) $(INCS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<  $(INCS) $(LIB_LINK)
 	
 norme :
 	@clear
-	@make norme -C $(LIB_PATH)
 	@norminette $(SRCS)
 	@norminette $(INC_DIR)
 
 clean:
-	@$(RM) $(OBJS)
-	@make fclean -C $(LIB_PATH)
+	@$(RM) $(OBJ_DIR)
 	@echo "$(LOG_CLEAR)$(LOG_RED)OBJECT FILES GO TO 🗑️$(LOG_NOCOLOR)"
 
 fclean : clean
 	@$(RM) $(NAME)
-	@make fclean -C $(LIB_PATH)
 	@echo "$(LOG_RED)REMOVE $(NAME) SUCCESSFULLY 🗑️$(LOG_NOCOLOR)"
 	@echo ""
 	@echo ""
+
 re : fclean all

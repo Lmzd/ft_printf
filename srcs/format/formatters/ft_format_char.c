@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 14:40:00 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 00:36:03 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 09:05:29 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/ft_printf.h"
+#include "../../../includes/libftprintf.h"
 
 void	ft_format_char_modifier(t_data *elem, va_list ap)
 {
@@ -20,7 +20,12 @@ void	ft_format_char_modifier(t_data *elem, va_list ap)
 	elem->modifier.l = (elem->modifier.ll) ? 0 : elem->modifier.l;
 	if (elem->modifier.l || elem->type == 'C')
 	{
-		elem->value = va_arg(ap, wchar_t);
+		elem->value = va_arg(ap, wint_t);
+		if (MB_CUR_MAX == 1 && ft_wcharlen(elem->value) > 1)
+		{
+			elem->error = 1;
+			elem->value = NULL;
+		}
 		elem->null = 0;
 	}
 	else if (elem->type == 'c')
@@ -36,6 +41,8 @@ void	ft_format_char(t_data *elem, va_list ap)
 {
 	ft_init_values(elem);
 	ft_format_char_modifier(elem, ap);
+	if (elem->error)
+		return ;
 	if (!elem->flags.dash
 		|| (elem->flags.dash && (elem->width < (int)ft_strlen(elem->buffer))))
 	{

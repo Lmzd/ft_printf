@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 16:46:17 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 07:52:46 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../includes/ft_printf.h"
+#include "../../../../includes/libftprintf.h"
 
 void	ft_format_wstr_flags(t_data *elem)
 {

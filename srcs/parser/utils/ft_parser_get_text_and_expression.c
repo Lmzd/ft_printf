@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 11:55:55 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/05 01:55:36 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 07:47:30 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_parser_get_text_and_expression(t_data *elem, char **str)
 {
 	int		len;
-	char	*regex;
 
 	len = 0;
 	elem->text = ft_strcut(str, '%');
@@ -27,8 +26,8 @@ void	ft_parser_get_text_and_expression(t_data *elem, char **str)
 	}
 	if (**str)
 	{
-		regex = ft_parser_find_regex(str);
-		elem->expression = regex;
+		len = ft_parser_get_regex_len(str);
+		elem->expression = (len == 0) ? NULL : ft_strncut(str, len);
 	}
 	len = 0;
 	len = ft_strlen(elem->expression);

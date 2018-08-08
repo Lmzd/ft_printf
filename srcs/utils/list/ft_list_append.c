@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 17:46:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/02 07:58:32 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/ft_printf.h"
+#include "../../../includes/libftprintf.h"
 
 /*
 **	name: ft_list_append

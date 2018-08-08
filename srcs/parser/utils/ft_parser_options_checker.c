@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 19:15:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/05 00:34:09 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 05:47:02 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_parser_flags_checker(t_data *elem, char *regex)
 	elem->flags.dash = ft_strhas_char(regex, '-');
 	elem->flags.hash = ft_strhas_char(regex, '#');
 	elem->flags.spaces = ft_strhas_char(regex, ' ');
-	elem->flags.zero = ft_strhaszero(regex, '0');
+	elem->flags.zero = ft_strhas_zero(regex, '0');
 	elem->flags.plus = ft_strhas_char(regex, '+');
 }
 

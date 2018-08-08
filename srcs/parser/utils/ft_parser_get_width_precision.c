@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 00:25:04 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 01:53:00 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/ft_printf.h"
+#include "../../../includes/libftprintf.h"
 
 int		ft_parser_get_width_precision(char *str)
 {

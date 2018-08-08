@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:58:51 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/04 18:36:03 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 07:43:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "../../includes/libftprintf.h"
 
 /*
 **	Take the format string recieve in arg cut it to store the regex

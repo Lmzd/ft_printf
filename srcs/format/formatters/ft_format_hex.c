@@ -6,11 +6,11 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:11:27 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 02:47:22 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/ft_printf.h"
+#include "../../../includes/libftprintf.h"
 
 void			ft_format_point_oct_arg(t_data *elem, va_list ap)
 {

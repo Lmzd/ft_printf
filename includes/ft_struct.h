@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 20:32:24 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/06 06:43:34 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 08:23:20 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct		s_data
 	wchar_t			*wbuffer;
 	t_flags			flags;
 	t_modifier		modifier;
+	int				error;
 	struct s_data	*next;
 }					t_data;
 

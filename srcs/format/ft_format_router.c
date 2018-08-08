@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 07:45:45 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/02 07:45:50 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** @return : nothing (buffered string is put in )
 */
 
-#include "../../includes/ft_printf.h"
+#include "../../includes/libftprintf.h"
 #include "../../includes/ft_format.h"
 
 void	ft_format_router(t_data *data, va_list ap)
