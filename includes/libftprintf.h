@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 08:40:17 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 09:18:10 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
+# include <wchar.h>
 # include <ctype.h>
 
 # include "ft_libft.h"
