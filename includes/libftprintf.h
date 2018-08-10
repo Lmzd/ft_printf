@@ -6,12 +6,12 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 09:18:10 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/10 15:09:29 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -20,9 +20,10 @@
 # include <stdarg.h>
 # include <wchar.h>
 # include <ctype.h>
+# include <limits.h>
 
-# include "ft_libft.h"
 # include "ft_struct.h"
+# include "ft_libft.h"
 # include "ft_utils_parser.h"
 # include "ft_utils_list.h"
 # include "ft_utils_test.h"

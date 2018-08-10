@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:11:27 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/10 12:55:15 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			ft_format_point_oct_arg(t_data *elem, va_list ap)
 	base = (elem->type == 'p') ? 16 : 8;
 	elem->neg = 0;
 	elem->null = (!value) ? 1 : 0;
-	elem->buffer = ft_itoa_base_uintmax(value, base);
+	elem->buffer = ft_itoa_base_uintmax(value, base, elem);
 }
 
 void			ft_format_hex_modifier(t_data *elem, va_list ap)
@@ -50,7 +50,7 @@ void			ft_format_hex_modifier(t_data *elem, va_list ap)
 		value = va_arg(ap, unsigned int);
 	elem->neg = 0;
 	elem->null = (!value) ? 1 : 0;
-	elem->buffer = ft_itoa_base_uintmax(value, base);
+	elem->buffer = ft_itoa_base_uintmax(value, base, elem);
 }
 
 static void		ft_format_case_modifier(t_data *data)
@@ -59,15 +59,28 @@ static void		ft_format_case_modifier(t_data *data)
 		data->buffer = ft_strtoupper(data->buffer);
 }
 
-void			ft_format_hex_minus(t_data *elem)
+void			ft_format_hex_router(t_data *elem, int dash)
 {
-	if (elem->precision > -1)
+	if (!dash || (dash && (elem->width < (int)ft_strlen(elem->buffer))))
 	{
-		ft_format_hex_precision_handler(elem);
-		ft_format_hex_precision_moins_flag_handler(elem);
+		if (elem->precision > -1)
+		{
+			ft_format_hex_precision_handler(elem);
+			ft_format_hex_precision_width_handler(elem);
+		}
+		else
+			ft_format_hex_width_handler(elem);
 	}
 	else
-		ft_format_hex_moins_flag_handler(elem);
+	{
+		if (elem->precision > -1)
+		{
+			ft_format_hex_precision_handler(elem);
+			ft_format_hex_precision_moins_flag_handler(elem);
+		}
+		else
+			ft_format_hex_moins_flag_handler(elem);
+	}
 }
 
 void			ft_format_hex(t_data *elem, va_list ap)
@@ -85,18 +98,7 @@ void			ft_format_hex(t_data *elem, va_list ap)
 	elem->flags.hash = (elem->null) ? 0 : elem->flags.hash;
 	elem->flags.hash = (!elem->precision && is_octal && hash
 		&& elem->width == -1) ? 1 : elem->flags.hash;
-	if (!dash || (dash && (elem->width < (int)ft_strlen(elem->buffer))))
-	{
-		if (elem->precision > -1)
-		{
-			ft_format_hex_precision_handler(elem);
-			ft_format_hex_precision_width_handler(elem);
-		}
-		else
-			ft_format_hex_width_handler(elem);
-	}
-	else
-		ft_format_hex_minus(elem);
+	ft_format_hex_router(elem, dash);
 	ft_format_hex_null_value(elem);
 	ft_format_case_modifier(elem);
 }

@@ -103,6 +103,23 @@ SRCS_FILES 	:= $(addprefix $(SRCS_DIR)/,$(SRCS))
 
 # OBJECTS
 OBJ_DIR		:=	obj
+CREATE_DIR	:=  $(OBJ_DIR)							\
+				$(OBJ_DIR)/format					\
+				$(OBJ_DIR)/format/formatters		\
+				$(OBJ_DIR)/format/utils/decimal		\
+				$(OBJ_DIR)/format/utils/hex			\
+				$(OBJ_DIR)/format/utils/str			\
+				$(OBJ_DIR)/format/utils/wstr		\
+				$(OBJ_DIR)/parser/					\
+				$(OBJ_DIR)/parser/utils				\
+				$(OBJ_DIR)/counter					\
+				$(OBJ_DIR)/printer					\
+				$(OBJ_DIR)/printer/utils			\
+				$(OBJ_DIR)/utils/free				\
+				$(OBJ_DIR)/utils/list				\
+				$(OBJ_DIR)/utils/test				\
+				$(OBJ_DIR)/utils/libft				\
+
 OBJS		:=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 AR		:=	ar rc
@@ -123,33 +140,20 @@ LOG_CLIGNO		= \033[5m
 
 .PHONY: all clean fclean re norme create-folder
 
-all : $(NAME)
+all : create-folder $(NAME)
 
-$(NAME) : create-folder $(OBJS)
+$(NAME) : $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
 	@$(RL) $(NAME) 
 	@echo "\033[5m$(LOG_GREEN)$(NAME) CREATED SUCCESSFULLY$(LOG_NOCOLOR)"
 
-create-folder :
+create-folder : $(CREATE_DIR)
+
+$(CREATE_DIR) :
 	@echo ""
 	@echo ""
 	@echo "$(LOG_VIOLET) $(LOG_CLIGNO)BEGIN COMPILING $(NAME)...$(LOG_NOCOLOR)"
-	@mkdir -p $(OBJ_DIR)
-	@mkdir -p $(OBJ_DIR)/format
-	@mkdir -p $(OBJ_DIR)/format/formatters
-	@mkdir -p $(OBJ_DIR)/format/utils/decimal
-	@mkdir -p $(OBJ_DIR)/format/utils/hex
-	@mkdir -p $(OBJ_DIR)/format/utils/str
-	@mkdir -p $(OBJ_DIR)/format/utils/wstr
-	@mkdir -p $(OBJ_DIR)/parser/
-	@mkdir -p $(OBJ_DIR)/parser/utils
-	@mkdir -p $(OBJ_DIR)/counter
-	@mkdir -p $(OBJ_DIR)/printer
-	@mkdir -p $(OBJ_DIR)/printer/utils
-	@mkdir -p $(OBJ_DIR)/utils/free
-	@mkdir -p $(OBJ_DIR)/utils/list
-	@mkdir -p $(OBJ_DIR)/utils/test
-	@mkdir -p $(OBJ_DIR)/utils/libft
+	@mkdir -p $(CREATE_DIR)
 
 $(OBJ_DIR)/%.o	: $(SRCS_DIR)/%.c
 	@echo "$(LOG_CLEAR)	👉  add $@	✅ $(LOG_NOCOLOR)"

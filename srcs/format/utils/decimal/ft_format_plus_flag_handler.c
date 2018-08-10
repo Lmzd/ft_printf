@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 14:23:26 by pblouin           #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:24:22 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void	ft_format_plus_flag_helper(t_data *elem, int len)
 	{
 		free(elem->buffer);
 		elem->buffer = ft_strjoin("+", buf);
+		free(buf);
 	}
 	else
 	{
 		while (buf[i] < '0' || buf[i] > '9')
 			i++;
-		res = ft_strreplace(buf, '+', --i);
-		elem->buffer = res;
+		ft_strreplace(buf, '+', --i);
+		elem->buffer = buf;
 	}
-	free(buf);
 }
 
 void	ft_format_plus_flag_handler(t_data *elem)

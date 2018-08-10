@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:39:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/10 12:53:27 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_format_get_u_arg(t_data *elem, va_list ap)
 	value = va_arg(ap, unsigned long int);
 	elem->null = (!value) ? 1 : 0;
 	elem->neg = 0;
-	elem->buffer = ft_itoa_base_intmax(value, 10);
+	elem->buffer = ft_itoa_base_uintmax(value, 10, elem);
 }
 
 void	ft_format_u_int_modifier(t_data *elem, va_list ap)
@@ -46,7 +46,7 @@ void	ft_format_u_int_modifier(t_data *elem, va_list ap)
 		value = va_arg(ap, unsigned int);
 	elem->null = (!value) ? 1 : 0;
 	elem->neg = 0;
-	elem->buffer = ft_itoa_base_uintmax(value, 10);
+	elem->buffer = ft_itoa_base_uintmax(value, 10, elem);
 }
 
 void	ft_format_u_int_minus(t_data *elem)

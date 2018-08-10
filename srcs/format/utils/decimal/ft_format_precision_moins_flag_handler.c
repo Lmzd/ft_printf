@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 19:40:52 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 07:21:23 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 22:17:05 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_format_precision_moins_flag_handler_helper(t_data *elem, char *str)
 	}
 	else
 		elem->buffer = res;
-
 }
 
 void	ft_format_precision_moins_flag_handler(t_data *elem)

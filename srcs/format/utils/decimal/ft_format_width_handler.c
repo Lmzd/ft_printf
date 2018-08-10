@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:33:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/10 13:46:57 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ void	ft_format_width_neg_helper(t_data *elem, char *str)
 		while (str[index] < '0' || str[index] > '9')
 			index++;
 		free(elem->buffer);
-		buf = ft_strreplace(str, '-', --index);
-		elem->buffer = buf;
+		elem->buffer = ft_strreplace(str, '-', --index);
 		return ;
 	}
 }

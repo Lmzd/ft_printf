@@ -6,12 +6,12 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:44:14 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/10 15:09:53 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef FT_LIBFT_H
+# define FT_LIBFT_H
 
 /*
 ** @brief Affiche le caractère c sur la sortie standard.
@@ -93,9 +93,9 @@ int					ft_strhas_char(char *str, int c);
 
 char				*ft_strtoupper(char *str);
 
-char				*ft_itoa_base_intmax(intmax_t n, int base);
+char				*ft_itoa_base_intmax(intmax_t n, int base, t_data *elem);
 
-char				*ft_itoa_base_uintmax(uintmax_t n, int base);
+char				*ft_itoa_base_uintmax(uintmax_t n, int base, t_data *elem);
 
 int					ft_strhas_zero(char *str, int c);
 

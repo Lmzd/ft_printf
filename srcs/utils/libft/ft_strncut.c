@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 12:32:26 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:43:49 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/08 22:13:29 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strncut(char **src, size_t n)
 		cut[i] = **src;
 		(*src)++;
 		i++;
-	} 
+	}
 	return (cut);
 }

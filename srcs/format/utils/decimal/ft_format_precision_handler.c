@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 15:28:40 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:10:50 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ void	ft_format_precision_handler(t_data *elem)
 	len = ft_strlen(elem->buffer);
 	preci = elem->precision;
 	if (preci <= len)
+	{
+		if (elem->flags.plus || elem->flags.spaces)
+			ft_format_precision_handler_helper(elem, elem->buffer);
 		return ;
+	}
 	extension = '0';
 	str = ft_strnew(preci);
 	while (len--)
