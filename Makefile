@@ -155,7 +155,7 @@ $(CREATE_DIR) :
 	@echo "$(LOG_VIOLET) $(LOG_CLIGNO)BEGIN COMPILING $(NAME)...$(LOG_NOCOLOR)"
 	@mkdir -p $(CREATE_DIR)
 
-$(OBJ_DIR)/%.o	: $(SRCS_DIR)/%.c
+$(OBJ_DIR)/%.o	:  $(SRCS_DIR)/%.c
 	@echo "$(LOG_CLEAR)	👉  add $@	✅ $(LOG_NOCOLOR)"
 	@$(CC) $(CFLAGS) -o $@ -c $<  $(INCS) $(LIB_LINK)
 	
