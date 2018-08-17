@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 18:50:14 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 18:29:00 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/12 06:21:04 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_format_hex_precision_handler(t_data *elem)
 	char	*buf;
 
 	prefix = (elem->type == 'O' || elem->type == 'o')
-		? ft_strdup("0") : ft_strdup("0x");
+		? ft_strdup(OCT_PREFIX) : ft_strdup(HEX_PREFIX);
 	len = ft_strlen(elem->buffer);
 	preci = elem->precision;
 	str = ft_strnew(preci);

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 21:23:08 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/12 06:21:02 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_format_hex_hash(t_data *elem)
 	char	*buf;
 
 	prefix = (elem->type == 'O' || elem->type == 'o')
-		? ft_strdup("0") : ft_strdup("0x");
+		? ft_strdup(OCT_PREFIX) : ft_strdup(HEX_PREFIX);
 	buf = elem->buffer;
 	elem->buffer = ft_strjoin(prefix, buf);
 	free(buf);

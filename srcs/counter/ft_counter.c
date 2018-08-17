@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:44:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 21:50:05 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/12 06:29:17 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_counter(t_data *begin)
 	while (elem)
 	{
 		if (elem->text)
-			len += ft_strlen(elem->text);
+			len += ft_counter_text(elem);
 		if (elem->wbuffer)
 			len += ft_strwlen(elem->wbuffer);
 		if (elem->buffer && !(elem->value || (elem->type == 'c'

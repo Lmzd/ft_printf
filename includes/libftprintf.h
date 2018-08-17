@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:10:31 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/10 15:09:29 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/12 06:30:58 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define TYPES          "sSpdDioOuUxXcC%"
 # define CHAR_ON        " .+-0#lhzj123456789sSpdDioOuUxXcC%"
 # define HEX_PREFIX     "0x"
+# define OCT_PREFIX     "0"
 
 t_data	*ft_parser(const char *format);
 
@@ -69,6 +70,7 @@ void	ft_print_null_bite(t_data *elem, int len);
 void	ft_print_wchar(t_data *elem);
 
 int		ft_counter(t_data *begin);
+int     ft_counter_text(t_data *elem);
 void	ft_free_structure(t_data **begin_list);
 
 #endif

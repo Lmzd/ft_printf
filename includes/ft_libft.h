@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/10 15:09:53 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/12 01:37:44 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int					ft_isupper(int c);
 int					ft_islower(int c);
 
 void				ft_memdel(void **ap);
+
+int		            ft_strcmp(const char *s1, const char *s2);
 
 void				*ft_memset(void *str, int c, size_t n);
 

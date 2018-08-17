@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 21:06:21 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/12 06:21:14 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_format_hex_width_handler(t_data *elem)
 	char	*prefix;
 
 	prefix = (elem->type == 'o' || elem->type == 'O')
-		? ft_strdup("0") : ft_strdup("0x");
+		? ft_strdup(OCT_PREFIX) : ft_strdup(HEX_PREFIX);
 	len = ft_strlen(elem->buffer);
 	if (elem->width <= len)
 	{

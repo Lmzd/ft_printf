@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 18:12:57 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 08:41:55 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/11 19:04:36 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,30 @@
 
 int		ft_formatter(t_data *list, va_list ap)
 {
-	t_data	*curr;
+	t_data	*elem;
 	int		ret;
+    char    *buf;
 
-	curr = list;
+	elem = list;
 	ret = 1;
-	while (curr)
+	while (elem)
 	{
-		if (ft_strhas_char(TYPES, curr->type))
-			ft_format_router(curr, ap);
+		if (ft_strhas_char(TYPES, elem->type))
+			ft_format_router(elem, ap);
 		else
-			curr->type = '\0';
-		if (curr->error)
+        {
+			elem->type = '\0';
+            if (elem->width > 0 && elem->flags.zero && !elem->flags.dash)
+                elem->buffer = ft_fillit('0', elem->width - 1);
+            else if (elem->width > 0 && !elem->flags.zero && !elem->flags.dash)
+                elem->buffer = ft_fillit(' ', elem->width - 1);
+        }
+		if (elem->error)
 		{
 			ret = -1;
 			break ;
 		}
-		curr = curr->next;
+		elem = elem->next;
 	}
 	return (ret);
 }

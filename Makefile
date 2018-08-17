@@ -55,6 +55,7 @@ SRCS	:=		ft_printf.c															\
 				parser/utils/ft_parser_put_default.c								\
 				printer/ft_printer.c												\
 				counter/ft_counter.c												\
+				counter/utils/ft_counter_text.c										\
 				printer/utils/ft_print_null_bite.c									\
 				printer/utils/ft_print_unicode.c									\
 				printer/utils/ft_print_wchar.c										\
@@ -81,6 +82,7 @@ SRCS	:=		ft_printf.c															\
 				utils/libft/ft_putstr.c												\
 				utils/libft/ft_putwchar.c											\
 				utils/libft/ft_strcat.c												\
+				utils/libft/ft_strcmp.c												\
 				utils/libft/ft_strcut.c												\
 				utils/libft/ft_strdel.c												\
 				utils/libft/ft_strdup.c												\
@@ -113,6 +115,7 @@ CREATE_DIR	:=  $(OBJ_DIR)							\
 				$(OBJ_DIR)/parser/					\
 				$(OBJ_DIR)/parser/utils				\
 				$(OBJ_DIR)/counter					\
+				$(OBJ_DIR)/counter/utils			\
 				$(OBJ_DIR)/printer					\
 				$(OBJ_DIR)/printer/utils			\
 				$(OBJ_DIR)/utils/free				\

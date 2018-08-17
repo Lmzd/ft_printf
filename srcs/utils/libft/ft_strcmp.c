@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_percent.c                                :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 03:37:52 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/11 17:46:00 by lmazeaud         ###   ########.fr       */
+/*   Created: 2018/04/13 18:55:34 by lmazeaud          #+#    #+#             */
+/*   Updated: 2018/08/12 01:37:16 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/libftprintf.h"
 
-void ft_format_percent(t_data *elem, va_list ap)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-    (void)ap;
-    elem->buffer = ft_strdup("%");
-    elem->wmalloc = 1;
-    ft_format_str_flags(elem);
-    if (!elem->precision && elem->width == -1)
-    {
-        free(elem->buffer);
-        elem->buffer = ft_strdup("%");
-    }
-    else if (!elem->precision && !elem->flags.dash 
-        && elem->width == ft_strlen(elem->buffer))
-        ft_strreplace(elem->buffer, '%', ft_strlen(elem->buffer) - 1);
+	const unsigned char *p1;
+	const unsigned char *p2;
+
+	p1 = (const unsigned char *)s1;
+	p2 = (const unsigned char *)s2;
+	while (*p1)
+	{
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		p1++;
+		p2++;
+	}
+	return (*p1 - *p2);
 }

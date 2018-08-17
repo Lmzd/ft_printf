@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/26 15:07:45 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/10 13:51:52 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/12 06:21:11 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void		ft_format_hex_null_value_helper(t_data *elem)
 	if (!elem->precision && elem->type == 'p' && elem->width == -1)
 	{
 		free(elem->buffer);
-		elem->buffer = ft_strdup("0x");
+		elem->buffer = ft_strdup(HEX_PREFIX);
 	}
 	if (!elem->precision && elem->flags.hash
 		&& elem->type != 'p' && elem->width == -1)
 	{
 		free(elem->buffer);
-		elem->buffer = ft_strdup("0");
+		elem->buffer = ft_strdup(OCT_PREFIX);
 	}
 	else if (!elem->precision && !elem->flags.hash
 		&& elem->type != 'p' && elem->width == -1)
