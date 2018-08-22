@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 19:47:11 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/12 01:37:44 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/22 18:22:37 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ char				*ft_strreplace(char *str, int letter, size_t index);
 
 intmax_t			ft_abs_intmax(intmax_t value);
 
-size_t				ft_strwlen(wchar_t *str);
+int				    ft_strwlen(wchar_t *str);
 
-size_t				ft_wcharlen(wchar_t c);
+int				    ft_wcharlen(wchar_t c);
 
 char				*ft_fillit(char c, size_t n);
 

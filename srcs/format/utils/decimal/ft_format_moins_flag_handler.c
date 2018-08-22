@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 17:07:37 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/21 19:56:02 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ void	ft_format_moins_flag_handler(t_data *elem)
 	int		width;
 
 	width = elem->width;
-	len = ft_strlen(elem->buffer);
+	len = (elem->type == 'C' || (elem->type == 'c' && elem->modifier.l))
+			? ft_wcharlen(elem->value)
+			: ft_strlen(elem->buffer);
 	if (width <= len || !elem->flags.dash)
 		ft_format_moins_flag_handler_no_width(elem);
 	else

@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 14:13:25 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 21:37:44 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/22 18:03:11 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,22 @@
 
 void	ft_format_str_check(t_data *elem)
 {
+	int		i;
+
+	i = 0;
 	if (MB_CUR_MAX == 1)
 	{
-		elem->error = 1;
-		elem->wbuffer = NULL;
+		while (elem->wbuffer[i] != '\0')
+		{
+			if ((elem->wbuffer[i] > 55295 && elem->wbuffer[i] < 57344)
+				|| elem->wbuffer[i] > 1114111 || elem->wbuffer[i] < 0)
+			{
+				elem->error = 1;
+				elem->wbuffer = NULL;
+				break ;
+			}
+			i++;
+		}
 	}
 }
 
@@ -27,6 +39,7 @@ void	ft_format_str_modifier(t_data *elem, va_list ap)
 	wchar_t *val;
 
 	elem->neg = 0;
+	elem->modifier.l = (elem->modifier.ll) ? 0 : elem->modifier.l;
 	if (elem->type == 'S'
 		|| (elem->type == 's' && elem->modifier.l && !elem->modifier.ll))
 	{

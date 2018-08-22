@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:44:09 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/12 06:29:17 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/22 19:07:14 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int		ft_counter_unicode(t_data *elem)
 	int nb;
 
 	nb = ft_strlen(elem->buffer);
-	if (nb != 0)
-		elem->buffer[--nb] = '\0';
 	return (ft_strlen(elem->buffer) + ft_wcharlen(elem->value));
 }
 
@@ -34,7 +32,16 @@ int		ft_counter(t_data *begin)
 		if (elem->text)
 			len += ft_counter_text(elem);
 		if (elem->wbuffer)
-			len += ft_strwlen(elem->wbuffer);
+		{
+			if (ft_strwlen(elem->wbuffer) >= 0)
+				len += ft_strwlen(elem->wbuffer);
+			else
+			{
+				elem->wbuffer = NULL;
+				elem->error = 1;
+				return (-1);
+			}
+		}
 		if (elem->buffer && !(elem->value || (elem->type == 'c'
 			&& elem->modifier.l) || elem->type == 'C'))
 			len += ft_strlen(elem->buffer);

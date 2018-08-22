@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 00:42:59 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/12 06:38:15 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/21 18:27:27 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,32 +37,32 @@
 typedef struct	s_color
 {
 	char	*def;
-	char    *col;
+	char	*col;
 }				t_color;
 
 t_color g_color[] =
 {
-    {"{def}", DEFAULT},
-    {"{black}", BLACK},
-    {"{red}", RED},
-    {"{green}", GREEN},
-    {"{yellow}", YELLOW},
-    {"{blue}", BLUE},
-    {"{mag}", MAGENTA},
-    {"{cyan}", CYAN},
-    {"{lgray}", LGRAY},
-    {"{dgray}", DGRAY},
-    {"{lred}", LRED},
-    {"{lgreen}", LGREEN},
-    {"{lyellow}", LYELLOW},
-    {"{lblue}", LBLUE},
-    {"{lmag}", LMAGENTA},
-    {"{lcyan}", LCYAN},
-    {"{white}", WHITE},
-    {"{bold}",BOLD},
-    {"{uline}", ULINE},
-    {"{oec}", RESET},
-    {0, 0}
+	{"{def}", DEFAULT},
+	{"{black}", BLACK},
+	{"{red}", RED},
+	{"{green}", GREEN},
+	{"{yellow}", YELLOW},
+	{"{blue}", BLUE},
+	{"{mag}", MAGENTA},
+	{"{cyan}", CYAN},
+	{"{lgray}", LGRAY},
+	{"{dgray}", DGRAY},
+	{"{lred}", LRED},
+	{"{lgreen}", LGREEN},
+	{"{lyellow}", LYELLOW},
+	{"{lblue}", LBLUE},
+	{"{lmag}", LMAGENTA},
+	{"{lcyan}", LCYAN},
+	{"{white}", WHITE},
+	{"{bold}", BOLD},
+	{"{uline}", ULINE},
+	{"{oec}", RESET},
+	{0, 0}
 };
 
 #endif

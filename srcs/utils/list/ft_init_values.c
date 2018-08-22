@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 03:17:07 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/07 07:04:35 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/22 17:34:17 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ void	ft_init_values(t_data *elem)
 	elem->wbuffer = NULL;
 	elem->null = 0;
 	elem->wmalloc = 0;
+	elem->error = 0;
 }

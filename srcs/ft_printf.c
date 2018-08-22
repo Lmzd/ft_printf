@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 17:54:47 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 08:51:24 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/22 16:11:27 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int		ft_printf(const char *format, ...)
 		ft_printer(begin_lst);
 	}
 	else
+	{
+		ft_printer(begin_lst);
 		len = -1;
+	}
 	ft_free_structure(&begin_lst);
 	return (len);
 }

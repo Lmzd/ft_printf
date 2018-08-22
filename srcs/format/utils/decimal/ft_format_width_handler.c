@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:33:29 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/10 13:46:57 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/21 19:43:50 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ void	ft_format_width_handler(t_data *elem)
 	int		width;
 	char	extension;
 
-	len = ft_strlen(elem->buffer);
+	len = (elem->type == 'C' || (elem->type == 'c' && elem->modifier.l))
+			? ft_wcharlen(elem->value)
+			: ft_strlen(elem->buffer);
 	width = elem->width;
 	if (width <= len)
 	{

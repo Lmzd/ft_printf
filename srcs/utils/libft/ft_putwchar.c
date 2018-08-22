@@ -6,7 +6,7 @@
 /*   By: lmazeaud <lmazeaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 23:01:52 by lmazeaud          #+#    #+#             */
-/*   Updated: 2018/08/08 21:37:20 by lmazeaud         ###   ########.fr       */
+/*   Updated: 2018/08/21 21:35:08 by lmazeaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_putwchar(wchar_t wc)
 {
-	if (wc <= 127)
+	if ((wc > 55295 && wc < 57344) || wc > 1114111 || wc < 0)
+		return ;
+	else if (wc <= 127 || (MB_CUR_MAX == 1 && (wc > 127 && wc <= 255)))
 		ft_putchar(wc);
 	else if (wc <= 2047)
 	{
